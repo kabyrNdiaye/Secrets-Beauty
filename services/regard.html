@@ -215,93 +215,95 @@
                     <i data-lucide="menu" class="w-6 h-6"></i>
                 </button>
                 <!-- Vertical Dashboard Mobile Menu (Sub-pages) -->
-                                                        <!-- Audace Style Mobile Menu -->
-                    <div id="mobile-menu"
-                        class="fixed inset-0 z-[1000] invisible md:hidden h-screen w-screen">
-                        
-                        <!-- Backdrop -->
-                        <div id="menu-backdrop" class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300" onclick="toggleMenu()"></div>
-                        
-                        <!-- Menu Panel -->
-                        <div id="menu-panel" class="absolute inset-y-0 left-0 w-[85%] max-w-sm h-full bg-white shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col">
-                            
-                            <!-- Header: Logo & Close -->
-                            <div class="px-6 py-4 flex justify-between items-center bg-white z-20">
-                                <button id="close-menu-btn" class="text-black">
-                                    <i data-lucide="x" class="w-6 h-6"></i>
-                                </button>
-                                <img src="../assets/images/logo-icon.png" alt="Logo" class="h-10 w-auto object-contain">
-                                <div class="w-6"></div> <!-- Spacer for balance -->
-                            </div>
+                <!-- Audace Style Mobile Menu -->
+                <div id="mobile-menu" class="fixed inset-0 z-[1000] invisible md:hidden h-screen w-screen">
 
-                            <!-- Search Bar -->
-                            <div class="px-6 py-4 border-b border-gray-100">
-                                <div class="relative">
-                                    <input type="text" placeholder="Les produits de recherche ici..." 
-                                        class="w-full h-10 px-4 pr-10 bg-white border border-gray-200 text-sm focus:outline-none focus:border-[#C5A059] placeholder-gray-400">
-                                    <button class="absolute right-0 top-0 h-10 w-10 flex items-center justify-center bg-[#C5A059] text-white">
-                                        <i data-lucide="search" class="w-4 h-4"></i>
-                                    </button>
-                                </div>
-                            </div>
+                    <!-- Backdrop -->
+                    <div id="menu-backdrop"
+                        class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300"
+                        onclick="toggleMenu()"></div>
 
-                            <!-- Slider Container -->
-                            <div class="flex-1 relative overflow-hidden">
-                                <div id="menu-slider" class="absolute inset-0 w-[200%] flex transition-transform duration-300">
-                                    
-                                    <!-- Main Menu List -->
-                                    <div class="w-1/2 h-full overflow-y-auto bg-white">
-                                        <nav class="flex flex-col">
-                                            <a href="../index.html" class="flex items-center px-6 py-4 border-b border-gray-100 border-l-4 border-l-[#C5A059] text-sm font-bold text-black uppercase tracking-wide bg-gray-50">
-                                                Accueil
-                                            </a>
-                                            <a href="../contact.html" class="flex items-center px-6 py-4 border-b border-gray-100 border-l-4 border-l-transparent text-sm font-bold text-black uppercase tracking-wide hover:bg-gray-50">
-                                                À Propos
-                                            </a>
-                                            <button id="open-services-btn" class="flex items-center justify-between px-6 py-4 border-b border-gray-100 border-l-4 border-l-transparent text-sm font-bold text-black uppercase tracking-wide hover:bg-gray-50 w-full">
-                                                <span>Nos Services</span>
-                                                <i data-lucide="chevron-right" class="w-4 h-4 text-gray-400"></i>
-                                            </button>
-                                            <a href="../reservation.html" class="flex items-center px-6 py-4 border-b border-gray-100 border-l-4 border-l-transparent text-sm font-bold text-black uppercase tracking-wide hover:bg-gray-50">
-                                                Réservation
-                                            </a>
-                                            <a href="../contact.html" class="flex items-center px-6 py-4 border-b border-gray-100 border-l-4 border-l-transparent text-sm font-bold text-black uppercase tracking-wide hover:bg-gray-50">
-                                                Contact
-                                            </a>
-                                        </nav>
-                                    </div>
+                    <!-- Menu Panel -->
+                    <div id="menu-panel"
+                        class="absolute inset-y-0 left-0 w-[85%] max-w-sm h-full bg-white shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col">
 
-                                    <!-- Submenu List (Services) -->
-                                    <div class="w-1/2 h-full overflow-y-auto bg-white">
-                                        <button id="back-to-main-btn" class="flex items-center gap-2 px-6 py-5 text-sm font-bold text-black uppercase tracking-wide w-full hover:bg-gray-50">
-                                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
-                                            <span>Back</span>
+                        <!-- Header: Logo & Close -->
+                        <div class="px-6 py-4 flex justify-between items-center bg-white z-20">
+                            <button id="close-menu-btn" class="text-black">
+                                <i data-lucide="x" class="w-6 h-6"></i>
+                            </button>
+                            <img src="../assets/images/logo-icon.png" alt="Logo" class="h-10 w-auto object-contain">
+                            <div class="w-6"></div> <!-- Spacer for balance -->
+                        </div>
+
+
+
+                        <!-- Slider Container -->
+                        <div class="flex-1 relative overflow-hidden">
+                            <div id="menu-slider"
+                                class="absolute inset-0 w-[200%] flex transition-transform duration-300">
+
+                                <!-- Main Menu List -->
+                                <div class="w-1/2 h-full overflow-y-auto bg-white">
+                                    <nav class="flex flex-col">
+                                        <a href="../index.html"
+                                            class="flex items-center px-6 py-4 border-b border-gray-100 border-l-4 border-l-[#C5A059] text-sm font-bold text-[#5C5045] uppercase tracking-wide bg-gray-50">
+                                            Accueil
+                                        </a>
+                                        <button id="open-services-btn"
+                                            class="flex items-center justify-between px-6 py-4 border-b border-gray-100 border-l-4 border-l-transparent text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50 w-full">
+                                            <span>Nos Services</span>
+                                            <i data-lucide="chevron-right" class="w-4 h-4 text-gray-400"></i>
                                         </button>
-                                        <nav class="flex flex-col border-t border-gray-100">
-                                            <a href="laser.html" class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-black uppercase tracking-wide hover:bg-gray-50">
-                                                Épilation Laser
-                                            </a>
-                                            <a href="onglerie.html" class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-black uppercase tracking-wide hover:bg-gray-50">
-                                                Onglerie
-                                            </a>
-                                            <a href="regard.html" class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-black uppercase tracking-wide hover:bg-gray-50">
-                                                Regard
-                                            </a>
-                                            <a href="visage.html" class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-black uppercase tracking-wide hover:bg-gray-50">
-                                                Visage
-                                            </a>
-                                            <a href="massages.html" class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-black uppercase tracking-wide hover:bg-gray-50">
-                                                Massages
-                                            </a>
-                                            <a href="forfaits.html" class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-black uppercase tracking-wide hover:bg-gray-50">
-                                                Forfaits
-                                            </a>
-                                        </nav>
-                                    </div>
+                                        <a href="../reservation.html"
+                                            class="flex items-center px-6 py-4 border-b border-gray-100 border-l-4 border-l-transparent text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
+                                            Réservation
+                                        </a>
+                                        <a href="../contact.html"
+                                            class="flex items-center px-6 py-4 border-b border-gray-100 border-l-4 border-l-transparent text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
+                                            Contact
+                                        </a>
+                                    </nav>
+                                </div>
+
+                                <!-- Submenu List (Services) -->
+                                <div class="w-1/2 h-full overflow-y-auto bg-white">
+                                    <button id="back-to-main-btn"
+                                        class="flex items-center gap-2 px-6 py-5 text-sm font-bold text-[#5C5045] uppercase tracking-wide w-full hover:bg-gray-50">
+                                        <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                                        <span>Back</span>
+                                    </button>
+                                    <nav class="flex flex-col border-t border-gray-100">
+                                        <a href="laser.html"
+                                            class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
+                                            Épilation Laser
+                                        </a>
+                                        <a href="onglerie.html"
+                                            class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
+                                            Onglerie
+                                        </a>
+                                        <a href="regard.html"
+                                            class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
+                                            Regard
+                                        </a>
+                                        <a href="visage.html"
+                                            class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
+                                            Visage
+                                        </a>
+                                        <a href="massages.html"
+                                            class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
+                                            Massages
+                                        </a>
+                                        <a href="forfaits.html"
+                                            class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
+                                            Forfaits
+                                        </a>
+                                    </nav>
                                 </div>
                             </div>
                         </div>
-                    </div>>>
+                    </div>
+                </div>>>>>
                 <a href="../reservation.html"
                     class="hidden lg:block bg-[#8FA206] text-white px-8 py-3 rounded-full text-[10px] font-bold tracking-widest hover:bg-[#5C5045] transition-all transform hover:scale-105 shadow-xl shadow-[#8FA206]/20">
                     PRENDRE RDV
@@ -317,7 +319,7 @@
             <div class="absolute inset-0 z-0 bg-black/10"></div>
             <!-- Floating Decorative Text -->
             <div
-                class="absolute top-1/4 left-10 opacity-5 rotate-90 origin-left text-[8rem] font-bold tracking-tighter uppercase whitespace-nowrap select-none pointer-events-none">
+                class="absolute top-1/4 left-10 opacity-5 rotate-90 origin-left text-[4rem] lg:text-[8rem] font-bold tracking-tighter uppercase whitespace-nowrap select-none pointer-events-none">
                 Eye Excellence • Art of Beauty
             </div>
 
@@ -331,7 +333,7 @@
                     </div>
                 </div>
 
-                <h1 class="text-[6rem] lg:text-[10rem] font-cursive text-[#5C5045] drop-shadow-2xl leading-[0.8]">
+                <h1 class="text-5xl lg:text-[10rem] font-cursive text-[#5C5045] drop-shadow-2xl leading-[0.8]">
                     L'Éclat <br> <span class="text-[#8FA206]">Absolu</span>
                 </h1>
 
@@ -357,7 +359,7 @@
         <section class="py-40 relative px-6">
             <!-- Large Back Text -->
             <div
-                class="absolute top-20 right-0 opacity-[0.02] text-[20rem] font-bold tracking-widest uppercase pointer-events-none">
+                class="absolute top-20 right-0 opacity-[0.02] text-[10rem] md:text-[20rem] font-bold tracking-widest uppercase pointer-events-none">
                 GAZE
             </div>
 
@@ -390,7 +392,7 @@
                             <span class="text-[10px] font-bold tracking-[0.5em] uppercase text-[#8FA206]">Menu de
                                 Soins</span>
                         </div>
-                        <h2 class="text-6xl font-cursive leading-tight text-[#5C5045]">
+                        <h2 class="text-4xl md:text-6xl font-cursive leading-tight text-[#5C5045]">
                             Précision <br> & Perfection
                         </h2>
                         <div class="editorial-line w-32"></div>
