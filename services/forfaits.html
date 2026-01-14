@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forfaits d'Exception | Secrets de Beauté - Luxe & Soins</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('../assets/images/014c462c-f88c-472b-bde6-11ba68e1fb2d.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: #32363D;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.1);
+        }
+
+        .nav-thumb {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+
+        .sidebar-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(125, 103, 82, 0.1);
+        }
+
+        .price-tag {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #5C5045;
+        }
+
+        .text-rose-taupe {
+            color: #D4A395;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-[#C5A059] selection:text-white pb-20">
+    <!-- Navigation -->
+    <header class="fixed w-full z-50">
+        <!-- Top Rich Bar -->
+        <div class="bg-[#5C5045] text-white/90 py-2 px-6 hidden md:block">
+            <div
+                class="max-w-7xl mx-auto flex justify-between items-center text-[10px] font-bold tracking-[0.2em] uppercase">
+                <div class="flex gap-6">
+                    <span class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3"></i> Saly, Face au
+                        Centre Commercial</span>
+                    <span class="flex items-center gap-2"><i data-lucide="phone" class="w-3 h-3"></i> 33 843 74 85 / 77
+                        747 00 48</span>
+                </div>
+                <div class="flex gap-4">
+                    <a href="https://instagram.com/saly.sfall" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="https://facebook.com/Secretsdebeauté_sn"
+                        class="hover:text-white transition-colors">Facebook</a>
+                    <a href="https://wa.me/221777470048" class="hover:text-white transition-colors">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+        <!-- Main Nav -->
+        <nav class="bg-[#F9F8F3]/90 backdrop-blur-md border-b border-[#5C5045]/10">
+            <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <img src="../assets/images/logo-icon.png" alt="Logo" class="w-14 h-14 object-contain"
+                        style="mix-blend-mode: multiply;">
+                    <a href="../index.html" class="font-cursive text-5xl text-[#5C5045]">Secrets de Beauté</a>
+                </div>
+                <div class="hidden md:flex gap-10 text-[11px] font-bold tracking-[0.25em] text-[#5C5045]/70">
+                    <a href="../index.html" class="hover:text-[#8FA206] transition-colors">L'ACCUEIL</a>
+                    <div class="relative group">
+                        <a href="../services.html"
+                            class="text-[#8FA206] transition-colors flex items-center gap-1 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-[#8FA206]">
+                            NOS SERVICES <i data-lucide="chevron-down" class="w-3 h-3"></i>
+                        </a>
+                        <!-- Dropdown Menu -->
+                        <div
+                            class="absolute top-full left-0 w-64 bg-[#F9F8F3] shadow-2xl rounded-2xl py-6 px-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-[#5C5045]/10 mt-2">
+                            <a href="laser.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">ÉPILATION LASER</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Haute
+                                    Technologie</div>
+                            </a>
+                            <a href="onglerie.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">ONGLERIE & PIEDS</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Art & Précision
+                                </div>
+                            </a>
+                            <a href="regard.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">REGARD</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Cils à Cils &
+                                    Soin</div>
+                            </a>
+                            <a href="visage.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">VISAGE</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Éclat & Pureté
+                                </div>
+                            </a>
+                            <a href="massages.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">MASSAGES & CORPS</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Détente Absolue
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="../reservation.html" class="hover:text-[#8FA206] transition-colors">RÉSERVATION</a>
+                    <a href="../contact.html" class="hover:text-[#8FA206] transition-colors">CONTACT</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="../reservation.html"
+                        class="hidden lg:flex items-center gap-2 bg-[#5C5045] text-white px-7 py-3 rounded-full text-[10px] font-bold tracking-widest hover:bg-[#8FA206] transition-all transform hover:scale-105 shadow-lg shadow-[#5C5045]/20">
+                        PRENDRE RDV
+                    </a>
+                    <button id="mobile-menu-btn" class="md:hidden text-[#5C5045]">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                    <!-- Mobile Menu Overlay -->
+                    <div id="mobile-menu"
+                        class="fixed inset-0 bg-[#F9F8F3] z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center space-y-8">
+                        <button id="close-menu-btn" class="absolute top-6 right-6 text-[#5C5045]">
+                            <i data-lucide="x" class="w-8 h-8"></i>
+                        </button>
+                        <div class="flex flex-col items-center mb-8">
+                            <img src="../assets/images/logo-icon.png" alt="Logo" class="w-24 h-24 object-contain mb-2"
+                                style="mix-blend-mode: multiply;">
+                            <a href="../index.html" class="font-cursive text-5xl text-[#5C5045]">Secrets de Beauté</a>
+                        </div>
+                        <nav class="flex flex-col items-center gap-6 text-sm font-bold tracking-[0.2em] text-[#5C5045]">
+                            <a href="../index.html" class="hover:text-[#8FA206] transition-colors">L'ACCUEIL</a>
+                            <div class="w-full text-center space-y-4">
+                                <a href="../services.html" class="text-[#8FA206] font-bold">NOS SERVICES</a>
+                                <div class="flex flex-col space-y-3 opacity-60 text-[9px] font-bold tracking-widest">
+                                    <a href="laser.html">LASER</a>
+                                    <a href="onglerie.html">ONGLERIE</a>
+                                    <a href="regard.html">REGARD</a>
+                                    <a href="visage.html">VISAGE</a>
+                                    <a href="massages.html">MASSAGES</a>
+                                </div>
+                            </div>
+                            <a href="../reservation.html" class="hover:text-[#8FA206] transition-colors">RÉSERVATION</a>
+                            <a href="../contact.html" class="hover:text-[#8FA206] transition-colors">CONTACT</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section class="hero-bg py-16 md:py-32 px-4 md:px-6 text-center">
+            <div class="max-w-4xl mx-auto space-y-4 md:space-y-6">
+                <div
+                    class="flex items-center justify-center gap-2 text-[#5C5045]/60 text-[8px] md:text-[10px] font-bold tracking-[0.2em] md:tracking-[0.4em] uppercase">
+                    <i data-lucide="award" class="w-2.5 h-2.5 md:w-3 md:h-3"></i>
+                    EXCLUSIVE EXPERIENCES
+                </div>
+                <h1 class="text-5xl md:text-8xl font-cursive text-[#5C5045] leading-tight">Forfaits d'Exception</h1>
+                <p class="text-xs md:text-base text-[#5C5045]/70 leading-relaxed max-w-2xl mx-auto italic px-4">
+                    Offrez-vous une parenthèse de bien-être absolu avec nos rituels combinés. Des expériences pensées
+                    pour sublimer votre corps et apaiser votre esprit.
+                </p>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="max-w-7xl mx-auto -mt-16 px-6 grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
+            <img src="../assets/images/55babf2e-ffb2-4c82-8318-6c63e0fd13ad.jpg" alt="Spa Day"
+                class="w-full h-96 object-cover rounded-2xl shadow-xl">
+            <img src="../assets/images/21edf73b-8555-4e6b-b798-06dc0f839b24.jpg" alt="Relaxation"
+                class="w-full h-96 object-cover rounded-2xl shadow-xl">
+        </section>
+
+        <!-- Forfaits Content -->
+        <section class="max-w-5xl mx-auto py-16 md:py-24 px-4 md:px-6 space-y-12 md:space-y-16">
+            <div class="text-center space-y-2 md:space-y-4">
+                <h2 class="text-4xl md:text-5xl font-cursive text-light text-rose-taupe">
+                    Nos <span class="text-[#5C5045]">Rituels de Soins</span>
+                </h2>
+                <p class="text-xs md:text-sm text-[#5C5045]/60 max-w-2xl mx-auto px-4">
+                    Choisissez la formule qui vous ressemble pour une expérience complète dans notre salon.
+                </p>
+            </div>
+
+            <div class="grid gap-12">
+                <!-- Forfait 1 -->
+                <div
+                    class="group relative bg-white p-6 md:p-10 rounded-[2rem] md:rounded-[3rem] shadow-sm border border-[#5C5045]/5 hover:shadow-2xl hover:border-[#8FA206]/20 transition-all duration-500 overflow-hidden">
+                    <div
+                        class="absolute -right-10 -top-10 w-40 h-40 bg-[#8FA206]/5 rounded-full blur-3xl group-hover:bg-[#8FA206]/10 transition-colors">
+                    </div>
+                    <div
+                        class="relative flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-8">
+                        <div class="space-y-3 md:space-y-4 flex-1">
+                            <h3 class="font-cursive text-3xl md:text-4xl text-[#5C5045]">Rituel Sérénité</h3>
+                            <p class="text-[9px] md:text-xs uppercase tracking-[0.2em] font-bold text-[#8FA206]">Forfait
+                                1</p>
+                            <div class="flex flex-wrap gap-2 pt-1 md:pt-2">
+                                <span
+                                    class="px-2 md:px-3 py-0.5 md:py-1 bg-[#5C5045]/5 rounded-full text-[8px] md:text-[10px] font-medium opacity-70">Gommage</span>
+                                <span
+                                    class="px-2 md:px-3 py-0.5 md:py-1 bg-[#5C5045]/5 rounded-full text-[8px] md:text-[10px] font-medium opacity-70">Massage
+                                    Relaxant</span>
+                                <span
+                                    class="px-2 md:px-3 py-0.5 md:py-1 bg-[#5C5045]/5 rounded-full text-[8px] md:text-[10px] font-medium opacity-70">Soin
+                                    Simple</span>
+                                <span
+                                    class="px-2 md:px-3 py-0.5 md:py-1 bg-[#5C5045]/5 rounded-full text-[8px] md:text-[10px] font-medium opacity-70">Pédicure
+                                    Simple</span>
+                            </div>
+                        </div>
+                        <div
+                            class="md:text-right w-full md:w-auto flex justify-between md:block items-baseline border-t md:border-t-0 border-[#5C5045]/5 pt-4 md:pt-0">
+                            <span class="text-3xl md:text-4xl font-bold text-[#5C5045]">65 000F</span>
+                            <p
+                                class="text-[8px] md:text-[10px] text-[#5C5045]/40 mt-1 uppercase font-bold tracking-widest">
+                                Tout
+                                Inclus</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Forfait Princesse -->
+                <div
+                    class="group relative bg-[#5C5045] p-8 md:p-12 rounded-[2.5rem] md:rounded-[4rem] shadow-2xl overflow-hidden transform hover:scale-[1.01] transition-transform duration-500">
+                    <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-[#8FA206]/10 rounded-full blur-[100px]"></div>
+                    <div
+                        class="relative flex flex-col md:flex-row justify-between items-start md:items-center gap-6 md:gap-8 text-white">
+                        <div class="space-y-4 md:space-y-6 flex-1">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="crown" class="w-5 h-5 md:w-6 md:h-6 text-[#8FA206]"></i>
+                                <h3 class="font-cursive text-4xl md:text-5xl">Forfait Princesse</h3>
+                            </div>
+                            <p class="text-[13px] md:text-sm text-white/70 leading-relaxed italic max-w-xl">
+                                Une expérience royale combinant notre soin dermaplaning exclusif, un massage tonique
+                                revitalisant, notre pédicure signature avec bain, et une pose gel parfaite mains &
+                                pieds.
+                            </p>
+                        </div>
+                        <div
+                            class="text-left bg-white/10 backdrop-blur-md p-6 md:p-8 rounded-2xl md:rounded-3xl border border-white/10 w-full md:w-auto">
+                            <span class="block text-4xl md:text-5xl font-bold text-[#8FA206]">110 000F</span>
+                            <span
+                                class="text-[9px] md:text-[10px] font-bold uppercase tracking-widest opacity-60">Expérience
+                                Premium</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="bg-white p-12 rounded-[3rem] border border-[#5C5045]/5 text-center space-y-6 max-w-2xl mx-auto shadow-sm">
+                <p class="text-[11px] text-[#5C5045]/60 leading-relaxed italic uppercase font-bold tracking-widest">
+                    "Offrez une carte cadeau Secrets de Beauté à vos proches pour un moment inoubliable."
+                </p>
+                <div class="flex justify-center gap-6 pt-4">
+                    <a href="https://wa.me/221777470048"
+                        class="flex items-center gap-2 bg-[#8FA206] text-white px-8 py-3 rounded-full text-[10px] font-bold tracking-widest hover:opacity-90 transition-all shadow-lg shadow-[#8FA206]/20">
+                        RÉSERVER UN FORFAIT
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Next/Prev -->
+        <section
+            class="max-w-7xl mx-auto py-12 px-6 border-t border-[#5C5045]/10 flex justify-between items-center text-[10px] font-bold tracking-[0.2em]">
+            <a href="epilation-wax.html" class="group flex items-center gap-6 hover:text-[#8FA206] transition-all">
+                <div
+                    class="w-14 h-14 rounded-full border border-[#5C5045]/10 bg-white flex items-center justify-center p-3 group-hover:border-[#8FA206]/30 transition-all">
+                    <img src="../assets/images/logo-icon.png" alt="" class="w-full h-full object-contain">
+                </div>
+                <div class="text-left">
+                    <div class="opacity-40 uppercase mb-1">Précédent</div>
+                    <div class="text-2xl text-[#5C5045] group-hover:text-[#8FA206] transition-colors">Épilation Wax
+                    </div>
+                </div>
+            </a>
+            <a href="laser.html" class="group flex items-center gap-6 hover:text-[#8FA206] transition-all text-right">
+                <div class="text-right">
+                    <div class="opacity-40 uppercase mb-1">Suivant</div>
+                    <div class="text-2xl text-[#5C5045] group-hover:text-[#8FA206] transition-colors">Laser</div>
+                </div>
+                <div
+                    class="w-14 h-14 rounded-full border border-[#5C5045]/10 bg-white flex items-center justify-center p-3 group-hover:border-[#8FA206]/30 transition-all">
+                    <img src="../assets/images/logo-icon.png" alt="" class="w-full h-full object-contain">
+                </div>
+            </a>
+        </section>
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+    </script>
+</body>
+
+</html>

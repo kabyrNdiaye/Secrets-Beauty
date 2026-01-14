@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Épilation Laser | Secrets de Beauté - Luxe & Soins</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: #8FA206;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.1) translateY(-5px);
+            background: #5C5045;
+            box-shadow: 0 15px 30px rgba(143, 162, 6, 0.2);
+        }
+
+        .nav-thumb {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+
+        .sidebar-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(125, 103, 82, 0.1);
+        }
+
+        .price-tag {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #5C5045;
+        }
+
+        .text-rose-taupe {
+            color: #D4A395;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-[#C5A059] selection:text-white pb-20">
+    <!-- Navigation -->
+    <header class="fixed w-full z-50">
+        <!-- Top Rich Bar -->
+        <div class="bg-[#5C5045] text-white/90 py-2 px-6 hidden md:block">
+            <div
+                class="max-w-7xl mx-auto flex justify-between items-center text-[10px] font-bold tracking-[0.2em] uppercase">
+                <div class="flex gap-6">
+                    <span class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3"></i> Saly, Face au
+                        Centre Commercial</span>
+                    <span class="flex items-center gap-2"><i data-lucide="phone" class="w-3 h-3"></i> 33 843 74 85 / 77
+                        747 00 48</span>
+                </div>
+                <div class="flex gap-4">
+                    <a href="https://instagram.com/saly.sfall" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="https://facebook.com/Secretsdebeauté_sn"
+                        class="hover:text-white transition-colors">Facebook</a>
+                    <a href="https://wa.me/221777470048" class="hover:text-white transition-colors">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+        <!-- Main Nav -->
+        <nav class="bg-[#F9F8F3]/90 backdrop-blur-md border-b border-[#5C5045]/10">
+            <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <img src="../assets/images/logo-icon.png" alt="Logo" class="w-14 h-14 object-contain"
+                        style="mix-blend-mode: multiply;">
+                    <a href="../index.html" class="font-cursive text-5xl text-[#5C5045]">Secrets de Beauté</a>
+                </div>
+                <div class="hidden md:flex gap-10 text-[11px] font-bold tracking-[0.25em] text-[#5C5045]/70">
+                    <a href="../index.html" class="hover:text-[#8FA206] transition-colors">L'ACCUEIL</a>
+                    <div class="relative group">
+                        <a href="../services.html"
+                            class="text-[#8FA206] transition-colors flex items-center gap-1 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-[#8FA206]">
+                            NOS SERVICES <i data-lucide="chevron-down" class="w-3 h-3"></i>
+                        </a>
+                        <!-- Dropdown Menu -->
+                        <div
+                            class="absolute top-full left-0 w-64 bg-[#F9F8F3] shadow-2xl rounded-2xl py-6 px-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-[#5C5045]/10 mt-2">
+                            <a href="laser.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">ÉPILATION LASER</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Haute
+                                    Technologie</div>
+                            </a>
+                            <a href="onglerie.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">ONGLERIE & PIEDS</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Art & Précision
+                                </div>
+                            </a>
+                            <a href="regard.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">REGARD</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Cils à Cils &
+                                    Soin</div>
+                            </a>
+                            <a href="visage.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">VISAGE</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Éclat & Pureté
+                                </div>
+                            </a>
+                            <a href="massages.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">MASSAGES & CORPS</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Détente Absolue
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="../reservation.html" class="hover:text-[#8FA206] transition-colors">RÉSERVATION</a>
+                    <a href="../contact.html" class="hover:text-[#8FA206] transition-colors">CONTACT</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="../reservation.html"
+                        class="hidden lg:flex items-center gap-2 bg-[#5C5045] text-white px-7 py-3 rounded-full text-[10px] font-bold tracking-widest hover:bg-[#8FA206] transition-all transform hover:scale-105 shadow-lg shadow-[#5C5045]/20">
+                        PRENDRE RDV
+                    </a>
+                    <button id="mobile-menu-btn" class="md:hidden text-[#5C5045]">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                    <!-- Mobile Menu Overlay -->
+                    <div id="mobile-menu"
+                        class="fixed inset-0 bg-[#F9F8F3] z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center space-y-8">
+                        <button id="close-menu-btn" class="absolute top-6 right-6 text-[#5C5045]">
+                            <i data-lucide="x" class="w-8 h-8"></i>
+                        </button>
+                        <div class="flex flex-col items-center mb-8">
+                            <img src="../assets/images/logo-icon.png" alt="Logo" class="w-24 h-24 object-contain mb-2"
+                                style="mix-blend-mode: multiply;">
+                            <a href="../index.html" class="font-cursive text-5xl text-[#5C5045]">Secrets de Beauté</a>
+                        </div>
+                        <nav class="flex flex-col items-center gap-6 text-sm font-bold tracking-[0.2em] text-[#5C5045]">
+                            <a href="../index.html" class="hover:text-[#8FA206] transition-colors">L'ACCUEIL</a>
+                            <div class="w-full text-center space-y-4">
+                                <a href="../services.html" class="text-[#8FA206] font-bold">NOS SERVICES</a>
+                                <div class="flex flex-col space-y-3 opacity-60 text-[9px] font-bold tracking-widest">
+                                    <a href="laser.html">LASER</a>
+                                    <a href="onglerie.html">ONGLERIE</a>
+                                    <a href="regard.html">REGARD</a>
+                                    <a href="visage.html">VISAGE</a>
+                                    <a href="massages.html">MASSAGES</a>
+                                </div>
+                            </div>
+                            <a href="../reservation.html" class="hover:text-[#8FA206] transition-colors">RÉSERVATION</a>
+                            <a href="../contact.html" class="hover:text-[#8FA206] transition-colors">CONTACT</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-24">
+
+
+        <!-- L'Expérience Diode: Asymmetrical Section -->
+        <section class="max-w-7xl mx-auto pb-32 pt-12 px-6 grid lg:grid-cols-2 gap-20 items-center">
+            <div class="relative group order-2 lg:order-1">
+                <div
+                    class="absolute -inset-4 bg-[#8FA206]/5 rounded-[3rem] blur-2xl group-hover:bg-[#8FA206]/10 transition-all duration-700">
+                </div>
+                <img src="../assets/images/87ab89c7-f181-4152-9749-45424dcff042.jpg" alt="Expertise Laser"
+                    class="relative w-full h-[600px] object-cover rounded-[3rem] shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]">
+                <div
+                    class="absolute bottom-8 right-8 bg-white/90 backdrop-blur-md p-6 rounded-3xl shadow-xl border border-[#5C5045]/10 max-w-xs">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-[#8FA206] mb-2">Technologie Diode</p>
+                    <p class="text-xs text-[#5C5045]/70 italic leading-relaxed">"Une précision millimétrée pour une peau
+                        durablement lisse."</p>
+                </div>
+            </div>
+
+            <div class="space-y-10 order-1 lg:order-2">
+                <div class="space-y-6">
+                    <h2 class="text-6xl font-cursive text-[#5C5045]">L'Expertise <span
+                            class="text-[#8FA206]">Prestige</span></h2>
+                    <p class="text-sm leading-relaxed text-[#5C5045]/70 max-w-xl">
+                        Plongez dans l'univers de la haute technologie avec notre épilation laser diode de dernière
+                        génération.
+                        Adaptée à tous les phototypes, notre solution allie sécurité maximale et efficacité redoutable
+                        pour
+                        des résultats visibles dès la première séance.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6">
+                    <div class="p-6 bg-white rounded-3xl border border-[#5C5045]/5 shadow-sm">
+                        <p class="text-[9px] font-bold uppercase tracking-widest text-[#5C5045]/40 mb-1">Durée</p>
+                        <p class="text-sm font-semibold text-[#5C5045]">20 - 60 min</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-3xl border border-[#5C5045]/5 shadow-sm">
+                        <p class="text-[9px] font-bold uppercase tracking-widest text-[#5C5045]/40 mb-1">Type</p>
+                        <p class="text-sm font-semibold text-[#5C5045]">Laser Diode</p>
+                    </div>
+                    <div class="p-6 bg-white rounded-3xl border border-[#5C5045]/5 shadow-sm">
+                        <p class="text-[9px] font-bold uppercase tracking-widest text-[#5C5045]/40 mb-1">Résultat</p>
+                        <p class="text-sm font-semibold text-[#5C5045]">Immédiat</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6 pt-4">
+                    <a href="../reservation.html"
+                        class="bg-[#5C5045] text-white px-8 py-4 rounded-full text-[10px] font-bold tracking-widest hover:bg-[#8FA206] transition-all transform hover:scale-105 shadow-xl">
+                        RÉSERVER MA SÉANCE
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Separator -->
+        <section class="bg-[#F9F8F3] py-20 border-y border-[#5C5045]/5">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center space-y-3 group">
+                    <div
+                        class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto shadow-sm group-hover:bg-[#8FA206] group-hover:text-white transition-all duration-500">
+                        <i data-lucide="infinity" class="w-6 h-6 text-[#8FA206] group-hover:text-white"></i>
+                    </div>
+                    <p class="text-[9px] font-bold uppercase tracking-widest text-[#5C5045]">Durabilité</p>
+                </div>
+                <div class="text-center space-y-3 group">
+                    <div
+                        class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto shadow-sm group-hover:bg-[#8FA206] group-hover:text-white transition-all duration-500">
+                        <i data-lucide="users" class="w-6 h-6 text-[#8FA206] group-hover:text-white"></i>
+                    </div>
+                    <p class="text-[9px] font-bold uppercase tracking-widest text-[#5C5045]">Tous Phototypes</p>
+                </div>
+                <div class="text-center space-y-3 group">
+                    <div
+                        class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto shadow-sm group-hover:bg-[#8FA206] group-hover:text-white transition-all duration-500">
+                        <i data-lucide="shield-check" class="w-6 h-6 text-[#8FA206] group-hover:text-white"></i>
+                    </div>
+                    <p class="text-[9px] font-bold uppercase tracking-widest text-[#5C5045]">Sécurisé</p>
+                </div>
+                <div class="text-center space-y-3 group">
+                    <div
+                        class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto shadow-sm group-hover:bg-[#8FA206] group-hover:text-white transition-all duration-500">
+                        <i data-lucide="smile" class="w-6 h-6 text-[#8FA206] group-hover:text-white"></i>
+                    </div>
+                    <p class="text-[9px] font-bold uppercase tracking-widest text-[#5C5045]">Indolore</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Lounge: Full Width Grid -->
+        <section class="max-w-7xl mx-auto py-32 px-6">
+            <div class="text-center space-y-4 mb-20">
+                <h2 class="text-5xl font-cursive text-light text-rose-taupe">Carte des <span
+                        class="text-[#5C5045]">Soins Laser</span></h2>
+                <div class="w-24 h-0.5 bg-[#8FA206]/30 mx-auto"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Visage -->
+                <div
+                    class="group p-8 bg-white rounded-[3rem] border border-[#5C5045]/5 hover:border-[#8FA206]/30 hover:shadow-2xl transition-all duration-500">
+                    <div class="flex flex-col h-full justify-between gap-6">
+                        <div class="space-y-2">
+                            <i data-lucide="sparkles" class="w-6 h-6 text-[#8FA206]"></i>
+                            <h3 class="font-cursive text-3xl text-[#5C5045]">Visage Complet</h3>
+                            <p class="text-[9px] text-[#5C5045]/40 uppercase font-bold tracking-widest">Éclat &
+                                Précision</p>
+                        </div>
+                        <div class="flex justify-between items-end">
+                            <span class="text-xs text-[#5C5045]/60">Séance Individuelle</span>
+                            <span class="text-3xl font-bold text-[#5C5045]">45 000F</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Corps High -->
+                <div
+                    class="group p-8 bg-[#5C5045] rounded-[3rem] shadow-xl hover:scale-[1.02] transition-all duration-500">
+                    <div class="flex flex-col h-full justify-between gap-6 text-white">
+                        <div class="space-y-2">
+                            <i data-lucide="crown" class="w-6 h-6 text-[#8FA206]"></i>
+                            <h3 class="font-cursive text-3xl">Forfait Prestige</h3>
+                            <p class="text-xs text-white/60 leading-relaxed italic">Jambes + Bras + Aisselles + Bikini
+                            </p>
+                        </div>
+                        <div class="text-right">
+                            <span class="block text-[10px] uppercase font-bold tracking-widest text-[#8FA206] mb-1">Top
+                                Vente</span>
+                            <span class="text-4xl font-bold">125 000F</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jambes -->
+                <div
+                    class="group p-8 bg-white rounded-[3rem] border border-[#5C5045]/5 hover:border-[#8FA206]/30 hover:shadow-2xl transition-all duration-500">
+                    <div class="flex flex-col h-full justify-between gap-6">
+                        <div class="space-y-2">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-[#8FA206]"></i>
+                            <h3 class="font-cursive text-3xl text-[#5C5045]">Jambes Entières</h3>
+                            <p class="text-[9px] text-[#5C5045]/40 uppercase font-bold tracking-widest">Douceur Absolue
+                            </p>
+                        </div>
+                        <div class="flex justify-between items-end">
+                            <span class="text-xs text-[#5C5045]/60">Séance Individuelle</span>
+                            <span class="text-3xl font-bold text-[#5C5045]">50 000F</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other items in a more compact grid -->
+                <div class="lg:col-span-3 grid sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-12 border-t border-[#5C5045]/10">
+                    <div
+                        class="flex justify-between items-center py-4 px-6 bg-white rounded-2xl shadow-sm border border-[#5C5045]/5 hover:border-[#8FA206]/20 transition-all">
+                        <span class="text-xs font-bold text-[#5C5045]/70 uppercase tracking-widest">Bras</span>
+                        <span class="text-lg font-bold text-[#8FA206]">40 000F</span>
+                    </div>
+                    <div
+                        class="flex justify-between items-center py-4 px-6 bg-white rounded-2xl shadow-sm border border-[#5C5045]/5 hover:border-[#8FA206]/20 transition-all">
+                        <span class="text-xs font-bold text-[#5C5045]/70 uppercase tracking-widest">Aisselles</span>
+                        <span class="text-lg font-bold text-[#8FA206]">25 000F</span>
+                    </div>
+                    <div
+                        class="flex justify-between items-center py-4 px-6 bg-white rounded-2xl shadow-sm border border-[#5C5045]/5 hover:border-[#8FA206]/20 transition-all">
+                        <span class="text-xs font-bold text-[#5C5045]/70 uppercase tracking-widest">Ventre</span>
+                        <span class="text-lg font-bold text-[#8FA206]">35 000F</span>
+                    </div>
+                    <div
+                        class="flex justify-between items-center py-4 px-6 bg-white rounded-2xl shadow-sm border border-[#5C5045]/5 hover:border-[#8FA206]/20 transition-all">
+                        <span class="text-xs font-bold text-[#5C5045]/70 uppercase tracking-widest">Dos</span>
+                        <span class="text-lg font-bold text-[#8FA206]">40 000F</span>
+                    </div>
+                    <div
+                        class="flex justify-between items-center py-4 px-6 bg-white rounded-2xl shadow-sm border border-[#5C5045]/5 hover:border-[#8FA206]/20 transition-all">
+                        <span class="text-xs font-bold text-[#5C5045]/70 uppercase tracking-widest">Bikini</span>
+                        <span class="text-lg font-bold text-[#8FA206]">45 000F</span>
+                    </div>
+                    <div
+                        class="flex justify-between items-center py-4 px-6 bg-white rounded-2xl shadow-sm border border-[#5C5045]/5 hover:border-[#8FA206]/20 transition-all">
+                        <span class="text-xs font-bold text-[#5C5045]/70 uppercase tracking-widest">Fesses</span>
+                        <span class="text-lg font-bold text-[#8FA206]">35 000F</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Navigation Next/Prev -->
+        <section
+            class="max-w-7xl mx-auto py-12 px-6 border-t border-[#5C5045]/10 flex justify-between items-center text-[10px] font-bold tracking-[0.2em]">
+            <a href="forfaits.html" class="group flex items-center gap-6 hover:text-[#8FA206] transition-all">
+                <div
+                    class="w-14 h-14 rounded-full border border-[#5C5045]/10 bg-white flex items-center justify-center p-3 group-hover:border-[#8FA206]/30 transition-all">
+                    <img src="../assets/images/logo-icon.png" alt="" class="w-full h-full object-contain">
+                </div>
+                <div class="text-left">
+                    <div class="opacity-40 uppercase mb-1">Précédent</div>
+                    <div class="text-2xl text-[#5C5045] group-hover:text-[#8FA206] transition-colors">Forfaits</div>
+                </div>
+            </a>
+            <a href="onglerie.html"
+                class="group flex items-center gap-6 hover:text-[#8FA206] transition-all text-right">
+                <div class="text-right">
+                    <div class="opacity-40 uppercase mb-1">Suivant</div>
+                    <div class="text-2xl text-[#5C5045] group-hover:text-[#8FA206] transition-colors">Onglerie</div>
+                </div>
+                <div
+                    class="w-14 h-14 rounded-full border border-[#5C5045]/10 bg-white flex items-center justify-center p-3 group-hover:border-[#8FA206]/30 transition-all">
+                    <img src="../assets/images/logo-icon.png" alt="" class="w-full h-full object-contain">
+                </div>
+            </a>
+        </section>
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+    </script>
+</body>
+
+</html>

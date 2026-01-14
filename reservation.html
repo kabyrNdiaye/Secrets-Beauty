@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservation | Secrets de Beauté - Haute Couture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --brand-taupe: #5C5045;
+            --brand-green: #8FA206;
+            --bg-cream: #F9F8F3;
+            --soft-gold: #E8DED1;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--brand-taupe);
+            overflow-x: hidden;
+        }
+
+        .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .font-cursive {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        /* Liquid Background Elements */
+        .liquid-bg {
+            position: fixed;
+            z-index: -1;
+            filter: blur(120px);
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        /* Step Progress Styles */
+        .step-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #E5E7EB;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .step-dot.active {
+            background: var(--brand-green);
+            box-shadow: 0 0 15px var(--brand-green);
+            transform: scale(1.5);
+        }
+
+        .step-line {
+            height: 2px;
+            background: #E5E7EB;
+            flex-grow: 1;
+            margin: 0 10px;
+        }
+
+        .step-line-fill {
+            height: 100%;
+            background: var(--brand-green);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        /* Service Cards */
+        .service-card {
+            background: white;
+            border: 1px solid rgba(92, 80, 69, 0.05);
+            border-radius: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--brand-green);
+            box-shadow: 0 20px 40px rgba(143, 162, 6, 0.08);
+        }
+
+        .service-card.selected {
+            border-color: var(--brand-green);
+            background: rgba(143, 162, 6, 0.02);
+            box-shadow: 0 0 0 2px var(--brand-green);
+        }
+
+        .service-card.selected .check-icon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Calendar Styles */
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .calendar-day.active:not(.disabled) {
+            background: var(--brand-green);
+            color: white;
+            box-shadow: 0 10px 20px rgba(143, 162, 6, 0.3);
+        }
+
+        .calendar-day.disabled {
+            opacity: 0.1;
+            cursor: not-allowed;
+        }
+
+        .calendar-day.today {
+            border: 1px solid var(--brand-green);
+            font-weight: bold;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step-content {
+            display: none;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .step-content.active {
+            display: block;
+        }
+
+        /* Summary Panel */
+        .summary-panel {
+            background: white;
+            border-radius: 2.5rem;
+            border: 1px solid rgba(92, 80, 69, 0.05);
+            position: sticky;
+            top: 100px;
+        }
+
+        @media (max-width: 1024px) {
+            .summary-panel {
+                display: none;
+                position: static;
+                margin-top: 2rem;
+            }
+
+            .summary-panel.show-mobile {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Decor -->
+    <div class="liquid-bg top-0 right-0 w-[800px] h-[800px] bg-[#EFE9E1]"></div>
+    <div class="liquid-bg bottom-0 left-0 w-[600px] h-[600px] bg-[#F4F1EA]"></div>
+
+    <!-- Navigation -->
+    <header class="fixed w-full z-50">
+        <!-- Top Rich Bar -->
+        <div class="bg-[#5C5045] text-white/90 py-2 px-6 hidden md:block">
+            <div
+                class="max-w-7xl mx-auto flex justify-between items-center text-[10px] font-bold tracking-[0.2em] uppercase">
+                <div class="flex gap-6">
+                    <span class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3"></i> Saly, Face au
+                        Centre Commercial</span>
+                    <span class="flex items-center gap-2"><i data-lucide="phone" class="w-3 h-3"></i> 33 843 74 85 / 77
+                        747 00 48</span>
+                </div>
+                <div class="flex gap-4">
+                    <a href="https://instagram.com/saly.sfall" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="https://facebook.com/Secretsdebeauté_sn"
+                        class="hover:text-white transition-colors">Facebook</a>
+                    <a href="https://wa.me/221777470048" class="hover:text-white transition-colors">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+        <!-- Main Nav -->
+        <nav class="bg-[#F9F8F3]/90 backdrop-blur-md border-b border-[#5C5045]/10">
+            <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <img src="assets/images/logo-icon.png" alt="Logo" class="w-14 h-14 object-contain"
+                        style="mix-blend-mode: multiply;">
+                    <a href="index.html" class="font-cursive text-5xl text-[#5C5045]">Secrets de Beauté</a>
+                </div>
+                <div class="hidden md:flex gap-10 text-[11px] font-bold tracking-[0.25em] text-[#5C5045]/70">
+                    <a href="index.html" class="hover:text-[#8FA206] transition-colors uppercase">L'Accueil</a>
+                    <div class="relative group">
+                        <a href="services.html" class="hover:text-[#8FA206] transition-colors flex items-center gap-1">
+                            NOS SERVICES <i data-lucide="chevron-down" class="w-3 h-3"></i>
+                        </a>
+                        <!-- Dropdown Menu -->
+                        <div
+                            class="absolute top-full left-0 w-64 bg-[#F9F8F3] shadow-2xl rounded-2xl py-6 px-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-[#5C5045]/10 mt-2">
+                            <a href="services/laser.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">ÉPILATION LASER</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Haute
+                                    Technologie</div>
+                            </a>
+                            <a href="services/onglerie.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">ONGLERIE & PIEDS</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Art & Précision
+                                </div>
+                            </a>
+                            <a href="services/regard.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">REGARD</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Cils à Cils &
+                                    Soin</div>
+                            </a>
+                            <a href="services/visage.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">VISAGE</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Éclat & Pureté
+                                </div>
+                            </a>
+                            <a href="services/massages.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">MASSAGES & CORPS</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Détente Absolue
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="reservation.html"
+                        class="text-[#8FA206] transition-colors relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-[#8FA206]">RÉSERVATION</a>
+                    <a href="contact.html" class="hover:text-[#8FA206] transition-colors">CONTACT</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button id="mobile-menu-btn" class="md:hidden text-[#5C5045]">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                    <!-- Mobile Menu Overlay -->
+                    <div id="mobile-menu"
+                        class="fixed inset-0 bg-[#F9F8F3] z-50 transform translate-x-full transition-transform duration-300 md:hidden flex flex-col items-center justify-center space-y-8">
+                        <button id="close-menu-btn" class="absolute top-6 right-6 text-[#5C5045]">
+                            <i data-lucide="x" class="w-8 h-8"></i>
+                        </button>
+                        <div class="flex flex-col items-center mb-8">
+                            <img src="assets/images/logo-icon.png" alt="Logo" class="w-24 h-24 object-contain mb-2"
+                                style="mix-blend-mode: multiply;">
+                            <a href="index.html" class="font-cursive text-5xl text-[#5C5045]">Secrets de Beauté</a>
+                        </div>
+                        <nav class="flex flex-col items-center gap-6 text-sm font-bold tracking-[0.2em] text-[#5C5045]">
+                            <a href="index.html" class="hover:text-[#8FA206] transition-colors">L'ACCUEIL</a>
+                            <div class="w-full text-center space-y-4">
+                                <a href="services.html" class="text-[#8FA206] font-bold">NOS SERVICES</a>
+                                <div class="flex flex-col space-y-3 opacity-60 text-[9px] font-bold tracking-widest">
+                                    <a href="services/laser.html">LASER</a>
+                                    <a href="services/onglerie.html">ONGLERIE</a>
+                                    <a href="services/regard.html">REGARD</a>
+                                    <a href="services/visage.html">VISAGE</a>
+                                    <a href="services/massages.html">MASSAGES</a>
+                                </div>
+                            </div>
+                            <a href="reservation.html" class="text-[#8FA206] transition-colors">RÉSERVATION</a>
+                            <a href="contact.html" class="hover:text-[#8FA206] transition-colors">CONTACT</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-32 md:pt-48 pb-40 px-6">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header Section -->
+            <div class="text-center mb-16">
+                <span class="font-cursive text-5xl text-[#D4A395] mb-2 block">Votre Parenthèse Enchantée</span>
+                <h1 class="text-5xl md:text-7xl font-serif text-[#5C5045]">Réservation Online</h1>
+            </div>
+
+            <!-- Main Layout Grid -->
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+
+                <!-- Summary Sidebar (Order 1 on Mobile) -->
+                <div class="lg:col-span-4 order-1 lg:order-2 summary-panel p-10 space-y-8 lg:block"
+                    id="booking-summary">
+                    <h3 class="text-2xl font-serif">Ma Réservation</h3>
+
+                    <div id="summary-services" class="space-y-4">
+                        <p class="text-[10px] uppercase font-bold tracking-widest opacity-40">Soins sélectionnés</p>
+                        <div id="selected-list" class="space-y-3">
+                            <p class="text-xs italic text-[#5C5045]/40">Aucune prestation choisie</p>
+                        </div>
+                    </div>
+
+                    <div id="summary-datetime" class="space-y-4 hidden border-t border-[#5C5045]/5 pt-6">
+                        <p class="text-[10px] uppercase font-bold tracking-widest opacity-40">Date & Heure</p>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="calendar" class="w-4 h-4 text-[#8FA206]"></i>
+                            <span id="sum-date" class="text-sm font-medium">--</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="clock" class="w-4 h-4 text-[#8FA206]"></i>
+                            <span id="sum-time" class="text-sm font-medium">--</span>
+                        </div>
+                    </div>
+
+                    <div id="total-section" class="border-t border-[#5C5045]/10 pt-6">
+                        <div class="flex justify-between items-end">
+                            <span class="text-[10px] uppercase font-bold tracking-widest opacity-40">Estimation
+                                totale</span>
+                            <span id="sum-total" class="text-2xl font-serif text-[#8FA206]">0F</span>
+                        </div>
+                        <p class="text-[8px] text-[#5C5045]/40 italic mt-2">* Le prix final peut varier selon les
+                            options.</p>
+                    </div>
+                </div>
+
+                <!-- Steps Container (Order 2 on Mobile) -->
+                <div class="lg:col-span-8 order-2 lg:order-1 space-y-12">
+
+                    <!-- Progress Bar -->
+                    <div class="flex items-center justify-between px-4">
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="step-dot active" id="dot-1"></div>
+                            <span class="text-[9px] font-bold tracking-widest uppercase opacity-40">Services</span>
+                        </div>
+                        <div class="step-line">
+                            <div class="step-line-fill" id="fill-1"></div>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="step-dot" id="dot-2"></div>
+                            <span class="text-[9px] font-bold tracking-widest uppercase opacity-40">Date & Heure</span>
+                        </div>
+                        <div class="step-line">
+                            <div class="step-line-fill" id="fill-2"></div>
+                        </div>
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="step-dot" id="dot-3"></div>
+                            <span class="text-[9px] font-bold tracking-widest uppercase opacity-40">Finalisation</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 1: Services -->
+                    <div id="step-1" class="step-content active">
+                        <div class="mb-10">
+                            <h2 class="text-3xl font-serif mb-2">Sélectionnez vos catégories</h2>
+                            <p class="text-sm text-[#5C5045]/60 italic">Choisissez un ou plusieurs univers de soin.</p>
+                        </div>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+                            <!-- Category Cards -->
+                            <div class="service-card p-6 group relative" id="cat-visage"
+                                onclick="selectCategory('visage')">
+                                <div id="badge-visage"
+                                    class="absolute -top-1 -right-1 w-5 h-5 bg-[#8FA206] text-white text-[9px] font-bold rounded-full flex items-center justify-center opacity-0 transition-opacity">
+                                    0</div>
+                                <div class="flex justify-between items-center mb-4">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-[#8FA206]/10 flex items-center justify-center text-[#8FA206]">
+                                        <i data-lucide="sparkles" class="w-5 h-5"></i>
+                                    </div>
+                                    <div
+                                        class="check-icon opacity-0 scale-50 transition-all duration-300 w-5 h-5 rounded-full bg-[#8FA206] flex items-center justify-center text-white">
+                                        <i data-lucide="check" class="w-3 h-3"></i>
+                                    </div>
+                                </div>
+                                <h3 class="text-base font-semibold">Visage</h3>
+                            </div>
+                            <div class="service-card p-6 group relative" id="cat-regard"
+                                onclick="selectCategory('regard')">
+                                <div id="badge-regard"
+                                    class="absolute -top-1 -right-1 w-5 h-5 bg-[#8FA206] text-white text-[9px] font-bold rounded-full flex items-center justify-center opacity-0 transition-opacity">
+                                    0</div>
+                                <div class="flex justify-between items-center mb-4">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-[#D4A395]/10 flex items-center justify-center text-[#D4A395]">
+                                        <i data-lucide="eye" class="w-5 h-5"></i>
+                                    </div>
+                                    <div
+                                        class="check-icon opacity-0 scale-50 transition-all duration-300 w-5 h-5 rounded-full bg-[#8FA206] flex items-center justify-center text-white">
+                                        <i data-lucide="check" class="w-3 h-3"></i>
+                                    </div>
+                                </div>
+                                <h3 class="text-base font-semibold">Regard</h3>
+                            </div>
+                            <div class="service-card p-6 group relative" id="cat-onglerie"
+                                onclick="selectCategory('onglerie')">
+                                <div id="badge-onglerie"
+                                    class="absolute -top-1 -right-1 w-5 h-5 bg-[#8FA206] text-white text-[9px] font-bold rounded-full flex items-center justify-center opacity-0 transition-opacity">
+                                    0</div>
+                                <div class="flex justify-between items-center mb-4">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-[#5C5045]/5 flex items-center justify-center text-[#5C5045]">
+                                        <i data-lucide="palette" class="w-5 h-5"></i>
+                                    </div>
+                                    <div
+                                        class="check-icon opacity-0 scale-50 transition-all duration-300 w-5 h-5 rounded-full bg-[#8FA206] flex items-center justify-center text-white">
+                                        <i data-lucide="check" class="w-3 h-3"></i>
+                                    </div>
+                                </div>
+                                <h3 class="text-base font-semibold">Onglerie</h3>
+                            </div>
+                            <div class="service-card p-6 group relative" id="cat-laser"
+                                onclick="selectCategory('laser')">
+                                <div id="badge-laser"
+                                    class="absolute -top-1 -right-1 w-5 h-5 bg-[#8FA206] text-white text-[9px] font-bold rounded-full flex items-center justify-center opacity-0 transition-opacity">
+                                    0</div>
+                                <div class="flex justify-between items-center mb-4">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-400">
+                                        <i data-lucide="zap" class="w-5 h-5"></i>
+                                    </div>
+                                    <div
+                                        class="check-icon opacity-0 scale-50 transition-all duration-300 w-5 h-5 rounded-full bg-[#8FA206] flex items-center justify-center text-white">
+                                        <i data-lucide="check" class="w-3 h-3"></i>
+                                    </div>
+                                </div>
+                                <h3 class="text-base font-semibold">Laser</h3>
+                            </div>
+                            <div class="service-card p-6 group relative" id="cat-massages"
+                                onclick="selectCategory('massages')">
+                                <div id="badge-massages"
+                                    class="absolute -top-1 -right-1 w-5 h-5 bg-[#8FA206] text-white text-[9px] font-bold rounded-full flex items-center justify-center opacity-0 transition-opacity">
+                                    0</div>
+                                <div class="flex justify-between items-center mb-4">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-500">
+                                        <i data-lucide="wind" class="w-5 h-5"></i>
+                                    </div>
+                                    <div
+                                        class="check-icon opacity-0 scale-50 transition-all duration-300 w-5 h-5 rounded-full bg-[#8FA206] flex items-center justify-center text-white">
+                                        <i data-lucide="check" class="w-3 h-3"></i>
+                                    </div>
+                                </div>
+                                <h3 class="text-base font-semibold">Massages</h3>
+                            </div>
+                            <div class="service-card p-6 group relative" id="cat-wax" onclick="selectCategory('wax')">
+                                <div id="badge-wax"
+                                    class="absolute -top-1 -right-1 w-5 h-5 bg-[#8FA206] text-white text-[9px] font-bold rounded-full flex items-center justify-center opacity-0 transition-opacity">
+                                    0</div>
+                                <div class="flex justify-between items-center mb-4">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-amber-50 flex items-center justify-center text-amber-500">
+                                        <i data-lucide="droplet" class="w-5 h-5"></i>
+                                    </div>
+                                    <div
+                                        class="check-icon opacity-0 scale-50 transition-all duration-300 w-5 h-5 rounded-full bg-[#8FA206] flex items-center justify-center text-white">
+                                        <i data-lucide="check" class="w-3 h-3"></i>
+                                    </div>
+                                </div>
+                                <h3 class="text-base font-semibold">Épilation Wax</h3>
+                            </div>
+                            <div class="service-card p-6 group relative" id="cat-forfaits"
+                                onclick="selectCategory('forfaits')">
+                                <div id="badge-forfaits"
+                                    class="absolute -top-1 -right-1 w-5 h-5 bg-[#8FA206] text-white text-[9px] font-bold rounded-full flex items-center justify-center opacity-0 transition-opacity">
+                                    0</div>
+                                <div class="flex justify-between items-center mb-4">
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-purple-400">
+                                        <i data-lucide="crown" class="w-5 h-5"></i>
+                                    </div>
+                                    <div
+                                        class="check-icon opacity-0 scale-50 transition-all duration-300 w-5 h-5 rounded-full bg-[#8FA206] flex items-center justify-center text-white">
+                                        <i data-lucide="check" class="w-3 h-3"></i>
+                                    </div>
+                                </div>
+                                <h3 class="text-base font-semibold">Forfaits</h3>
+                            </div>
+                        </div>
+
+                        <!-- Sub-Services Panel -->
+                        <div id="sub-services-panel" class="hidden animate-fadeIn">
+                            <div class="mb-6 flex justify-between items-center">
+                                <h3 class="text-xl font-serif" id="sub-panel-title">Détails de la prestation</h3>
+                                <span
+                                    class="text-[9px] font-bold text-[#8FA206] bg-[#8FA206]/5 px-3 py-1 rounded-full uppercase tracking-widest">Choix
+                                    multiples possibles</span>
+                            </div>
+                            <div id="options-container" class="grid sm:grid-cols-2 gap-4">
+                                <!-- Opérations dynamiques ici -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Date & Heure -->
+                    <div id="step-2" class="step-content">
+                        <div class="mb-10">
+                            <h2 class="text-3xl font-serif mb-2">Quand souhaitez-vous venir ?</h2>
+                            <p class="text-sm text-[#5C5045]/60 italic">Sélectionnez une date disponible sur le
+                                calendrier.</p>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-12 bg-white p-10 rounded-[3rem] border border-[#5C5045]/5">
+                            <!-- Calendar -->
+                            <div id="calendar-container">
+                                <div class="flex justify-between items-center mb-8">
+                                    <button onclick="changeMonth(-1)" class="p-2 hover:bg-[#5C5045]/5 rounded-full"><i
+                                            data-lucide="chevron-left" class="w-5 h-5"></i></button>
+                                    <h3 id="current-month" class="text-xl font-serif">Janvier 2026</h3>
+                                    <button onclick="changeMonth(1)" class="p-2 hover:bg-[#5C5045]/5 rounded-full"><i
+                                            data-lucide="chevron-right" class="w-5 h-5"></i></button>
+                                </div>
+                                <div
+                                    class="grid grid-cols-7 gap-2 text-center text-[10px] font-bold uppercase tracking-widest opacity-30 mb-4">
+                                    <div>Lu</div>
+                                    <div>Ma</div>
+                                    <div>Me</div>
+                                    <div>Je</div>
+                                    <div>Ve</div>
+                                    <div>Sa</div>
+                                    <div>Di</div>
+                                </div>
+                                <div id="calendar-days" class="grid grid-cols-7 gap-2">
+                                    <!-- Days populated by JS -->
+                                </div>
+                            </div>
+
+                            <!-- Time Selection -->
+                            <div class="space-y-6">
+                                <h3 class="text-xl font-serif">Heure du rendez-vous</h3>
+                                <div class="grid grid-cols-2 gap-4" id="time-grid">
+                                    <button onclick="selectTime('09:00')"
+                                        class="time-btn py-4 rounded-2xl border border-[#5C5045]/10 text-sm font-medium hover:border-[#8FA206] transition-all">09:00</button>
+                                    <button onclick="selectTime('10:30')"
+                                        class="time-btn py-4 rounded-2xl border border-[#5C5045]/10 text-sm font-medium hover:border-[#8FA206] transition-all">10:30</button>
+                                    <button onclick="selectTime('12:00')"
+                                        class="time-btn py-4 rounded-2xl border border-[#5C5045]/10 text-sm font-medium hover:border-[#8FA206] transition-all">12:00</button>
+                                    <button onclick="selectTime('14:30')"
+                                        class="time-btn py-4 rounded-2xl border border-[#5C5045]/10 text-sm font-medium hover:border-[#8FA206] transition-all">14:30</button>
+                                    <button onclick="selectTime('16:00')"
+                                        class="time-btn py-4 rounded-2xl border border-[#5C5045]/10 text-sm font-medium hover:border-[#8FA206] transition-all">16:00</button>
+                                    <button onclick="selectTime('17:30')"
+                                        class="time-btn py-4 rounded-2xl border border-[#5C5045]/10 text-sm font-medium hover:border-[#8FA206] transition-all">17:30</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Finalisation -->
+                    <div id="step-3" class="step-content">
+                        <div class="mb-10 text-center">
+                            <h2 class="text-3xl font-serif mb-2">Dernière étape</h2>
+                            <p class="text-sm text-[#5C5045]/60 italic">Laissez-nous vos coordonnées pour confirmer sur
+                                WhatsApp.</p>
+                        </div>
+
+                        <div
+                            class="max-w-md mx-auto space-y-8 bg-white p-12 rounded-[3.5rem] border border-[#5C5045]/5">
+                            <!-- Bloc Récapitulatif Final -->
+                            <div class="bg-[#F9F8F3] p-8 rounded-3xl border border-[#5C5045]/5 mb-6">
+                                <h4 class="text-[10px] font-bold uppercase tracking-widest text-[#5C5045]/40 mb-4">Votre
+                                    Sélection</h4>
+                                <div id="final-recap-list" class="space-y-3 mb-4">
+                                    <!-- Dynamique -->
+                                </div>
+                                <div class="pt-4 border-t border-[#5C5045]/10 flex justify-between items-center">
+                                    <span class="text-xs font-bold uppercase tracking-wider text-[#5C5045]">Total
+                                        Estimé</span>
+                                    <span id="final-total" class="text-lg font-bold text-[#8FA206]">0F</span>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <label class="text-[10px] uppercase font-bold tracking-widest opacity-40 ml-4">Nom
+                                    Complet</label>
+                                <input type="text" id="full-name" placeholder="Marie Diop"
+                                    class="w-full bg-[#FDFCF8] border-none p-5 rounded-3xl focus:ring-2 focus:ring-[#8FA206]/20 outline-none">
+                            </div>
+                            <div class="space-y-4">
+                                <label class="text-[10px] uppercase font-bold tracking-widest opacity-40 ml-4">Numéro de
+                                    téléphone</label>
+                                <input type="tel" id="user-phone" placeholder="77 000 00 00"
+                                    class="w-full bg-[#FDFCF8] border-none p-5 rounded-3xl focus:ring-2 focus:ring-[#8FA206]/20 outline-none">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Actions -->
+                    <div class="flex justify-between items-center pt-8">
+                        <button id="prevBtn" onclick="prevStep()"
+                            class="opacity-0 pointer-events-none px-8 py-4 rounded-full text-[11px] font-bold tracking-widest border border-[#5C5045]/10 hover:bg-[#5C5045] hover:text-white transition-all flex items-center gap-2">
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i> PRÉCÉDENT
+                        </button>
+                        <button id="nextBtn" onclick="nextStep()"
+                            class="px-10 py-5 rounded-full bg-[#5C5045] text-white text-[11px] font-bold tracking-widest hover:bg-[#8FA206] shadow-xl hover:shadow-[#8FA206]/20 transition-all flex items-center gap-4">
+                            CONTINUER <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                        <button id="confirmBtn" onclick="confirmBooking()"
+                            class="hidden px-12 py-5 rounded-full bg-[#8FA206] text-white text-[11px] font-bold tracking-widest hover:opacity-90 shadow-xl shadow-[#8FA206]/20 transition-all flex items-center gap-4 animate-pulse">
+                            CONFIRMER SUR WHATSAPP <i data-lucide="send" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white py-12 text-center border-t border-[#5C5045]/5">
+        <p class="text-[9px] tracking-[0.4em] text-[#5C5045]/30 uppercase font-bold">© 2026 Secrets de Beauté —
+            L'excellence au féminin</p>
+    </footer>
+
+    <!-- Floating Mobile Summary Hub -->
+    <div id="float-hub"
+        class="fixed bottom-0 left-0 right-0 p-4 z-[55] lg:hidden transform translate-y-full transition-transform duration-500">
+        <div
+            class="bg-white/95 backdrop-blur-md rounded-[2.5rem] shadow-[0_-10px_40px_rgba(0,0,0,0.1)] border border-[#5C5045]/5 p-5 flex justify-between items-center">
+            <div class="flex flex-col">
+                <span class="text-[8px] font-bold text-[#5C5045]/40 uppercase tracking-[0.2em]">Votre Sélection</span>
+                <div class="flex items-baseline gap-1">
+                    <span id="float-hub-total" class="text-2xl font-serif text-[#5C5045]">0F</span>
+                </div>
+            </div>
+            <div class="flex gap-2">
+                <button onclick="document.getElementById('booking-summary').scrollIntoView({behavior:'smooth'})"
+                    class="w-12 h-12 rounded-full border border-[#5C5045]/10 flex items-center justify-center text-[#5C5045]">
+                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                </button>
+                <button onclick="nextStep()"
+                    class="bg-[#5C5045] text-white px-8 py-3 rounded-full text-[10px] font-bold tracking-widest hover:bg-[#8FA206] transition-all">
+                    SUIVANT
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // Data Base
+        const servicesData = {
+            visage: {
+                title: "Soins du Visage",
+                options: [
+                    { id: "v1", name: "Soin Éclat Purifiant", price: "25 000" },
+                    { id: "v2", name: "Soin avec Extraction", price: "20 000" },
+                    { id: "v3", name: "Extraction + Épilation", price: "15 000" },
+                    { id: "v4", name: "Soin Anti-Acné Argile", price: "22 000" },
+                    { id: "v5", name: "Soin Vitamine C", price: "25 000" },
+                    { id: "v6", name: "Hydra Facial", price: "40 000" },
+                    { id: "v7", name: "Micro Needling", price: "50 000" }
+                ]
+            },
+            regard: {
+                title: "Beauté du Regard",
+                options: [
+                    { id: "r1", name: "Pose Classique", price: "25 000" },
+                    { id: "r2", name: "Volume Russe", price: "35 000" },
+                    { id: "r3", name: "Cils Simple", price: "30 000" },
+                    { id: "r4", name: "Dépose", price: "10 000" }
+                ]
+            },
+            onglerie: {
+                title: "Onglerie & Pieds",
+                options: [
+                    { id: "o1", name: "Gel / Résine French Main", price: "25 000" },
+                    { id: "o2", name: "Gel Main", price: "20 000" },
+                    { id: "o3", name: "Résine Main", price: "20 000" },
+                    { id: "o4", name: "Babyboomer", price: "25 000" },
+                    { id: "o5", name: "Manucure Simple", price: "5 000" },
+                    { id: "o6", name: "Gel Pied", price: "12 000" },
+                    { id: "o7", name: "Gel / Résine French Pied", price: "15 000" },
+                    { id: "o8", name: "Résine Pied", price: "12 000" },
+                    { id: "o9", name: "Pédicure Classic", price: "10 000" },
+                    { id: "o10", name: "Pédicure Orientale", price: "15 000" },
+                    { id: "o11", name: "Pédicure Parafine", price: "20 000" }
+                ]
+            },
+            laser: {
+                title: "Épilation Laser Diode",
+                options: [
+                    { id: "l1", name: "Visage Complet", price: "45 000" },
+                    { id: "l2", name: "Forfait Prestige (Combo)", price: "125 000" },
+                    { id: "l3", name: "Jambes Entières", price: "50 000" },
+                    { id: "l4", name: "Bras", price: "40 000" },
+                    { id: "l5", name: "Aisselles", price: "25 000" },
+                    { id: "l6", name: "Ventre", price: "35 000" },
+                    { id: "l7", name: "Dos", price: "40 000" },
+                    { id: "l8", name: "Bikini", price: "45 000" },
+                    { id: "l9", name: "Fesses", price: "35 000" }
+                ]
+            },
+            massages: {
+                title: "Massages & Corps",
+                options: [
+                    { id: "m1", name: "Massage Californien", price: "28 000" },
+                    { id: "m2", name: "Massage Relaxant (1h)", price: "25 000" },
+                    { id: "m3", name: "Massage Dos (30mn)", price: "15 000" },
+                    { id: "m4", name: "Gommage Vitamine C", price: "20 000" },
+                    { id: "m5", name: "Gommage Curcuma", price: "15 000" }
+                ]
+            },
+            wax: {
+                title: "Épilation Classique (Wax)",
+                options: [
+                    { id: "w1", name: "Visage", price: "5 000" },
+                    { id: "w2", name: "Maillot complet", price: "15 000" },
+                    { id: "w3", name: "Aisselle", price: "4 000" },
+                    { id: "w4", name: "Jambes", price: "10 000" }
+                ]
+            },
+            forfaits: {
+                title: "Forfaits d'Exception",
+                options: [
+                    { id: "f1", name: "Rituel Sérénité (Forfait 1)", price: "65 000" },
+                    { id: "f2", name: "Forfait Princesse", price: "110 000" }
+                ]
+            }
+        };
+
+        let currentStep = 1;
+        let selectedCategory = null;
+        let selectedItems = []; // Array of option objects
+        let selectedDate = null;
+        let selectedTime = null;
+
+        // URL Parameters handling
+        window.addEventListener('load', () => {
+            const params = new URLSearchParams(window.location.search);
+            const service = params.get('service');
+            if (service && servicesData[service]) {
+                selectCategory(service);
+            }
+            updateSummary();
+        });
+
+        function selectCategory(catId) {
+            selectedCategory = catId;
+
+            // UI Visual for cards
+            document.querySelectorAll('.service-card').forEach(card => card.classList.remove('selected'));
+            document.getElementById(`cat-${catId}`).classList.add('selected');
+
+            // Show and Populate Sub-panel
+            const panel = document.getElementById('sub-services-panel');
+            const title = document.getElementById('sub-panel-title');
+            const container = document.getElementById('options-container');
+
+            panel.classList.remove('hidden');
+            title.innerText = servicesData[catId].title;
+
+            container.innerHTML = servicesData[catId].options.map(opt => {
+                const isSelected = selectedItems.find(i => i.id === opt.id);
+                return `
+                    <div onclick="toggleItem('${opt.id}', '${opt.name}', '${opt.price}')" 
+                         id="opt-${opt.id}"
+                         class="flex justify-between items-center p-5 rounded-2xl bg-white border ${isSelected ? 'border-[#8FA206] bg-[#8FA206]/5' : 'border-[#5C5045]/5'} hover:border-[#8FA206] transition-all cursor-pointer group">
+                        <div class="flex items-center gap-3">
+                            <div class="w-5 h-5 rounded border ${isSelected ? 'bg-[#8FA206] border-[#8FA206]' : 'border-[#5C5045]/20'} flex items-center justify-center text-white transition-all">
+                                <i data-lucide="check" class="w-3 h-3 ${isSelected ? '' : 'hidden'}"></i>
+                            </div>
+                            <span class="text-sm font-medium">${opt.name}</span>
+                        </div>
+                        <span class="text-xs font-bold text-[#8FA206]">${opt.price}F</span>
+                    </div>
+                `;
+            }).join('');
+
+            lucide.createIcons();
+            setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 300);
+        }
+
+        function toggleItem(id, name, price) {
+            if (!selectedItems) selectedItems = [];
+            const index = selectedItems.findIndex(i => i.id === id);
+            const box = document.getElementById(`opt-${id}`);
+
+            if (index > -1) {
+                selectedItems.splice(index, 1);
+                if (box) {
+                    box.classList.remove('border-[#8FA206]', 'bg-[#8FA206]/5');
+                    const check = box.querySelector('.w-5');
+                    if (check) check.classList.remove('bg-[#8FA206]', 'border-[#8FA206]');
+                    const icon = box.querySelector('i');
+                    if (icon) icon.classList.add('hidden');
+                }
+            } else {
+                selectedItems.push({ id, name, price });
+                if (box) {
+                    box.classList.add('border-[#8FA206]', 'bg-[#8FA206]/5');
+                    const check = box.querySelector('.w-5');
+                    if (check) check.classList.add('bg-[#8FA206]', 'border-[#8FA206]');
+                    const icon = box.querySelector('i');
+                    if (icon) icon.classList.remove('hidden');
+                }
+            }
+            updateSummary();
+        }
+
+        function updateSummary() {
+            const list = document.getElementById('selected-list');
+            const total = document.getElementById('sum-total');
+            const summaryPanel = document.getElementById('booking-summary');
+            if (!list || !total || !summaryPanel) return;
+
+            const hub = document.getElementById('float-hub');
+            const hubTotal = document.getElementById('float-hub-total');
+            const finalRecap = document.getElementById('final-recap-list');
+            const finalTotal = document.getElementById('final-total');
+
+            // Reset Badges
+            document.querySelectorAll('[id^="badge-"]').forEach(b => {
+                b.innerText = '0';
+                b.style.opacity = '0';
+            });
+
+            if (!selectedItems || selectedItems.length === 0) {
+                const emptyMsg = '<p class="text-xs italic text-[#5C5045]/40 text-center py-4">Aucune prestation choisie</p>';
+                list.innerHTML = emptyMsg;
+                if (finalRecap) finalRecap.innerHTML = emptyMsg;
+                total.innerText = '0F';
+                if (finalTotal) finalTotal.innerText = '0F';
+                summaryPanel.classList.remove('show-mobile');
+                if (hub) hub.classList.add('translate-y-full');
+                return;
+            }
+
+            // Create List
+            let html = '';
+            let sum = 0;
+            selectedItems.forEach(s => {
+                html += `
+                    <div class="flex justify-between items-center text-sm border-b border-[#5C5045]/5 pb-2 animate-fadeIn">
+                        <div class="flex flex-col">
+                            <span class="font-medium text-[#5C5045]">${s.name}</span>
+                            <span class="text-[9px] text-[#8FA206] font-bold">${s.price}F</span>
+                        </div>
+                        <button onclick="toggleItem('${s.id}', '${s.name}', '${s.price}')" class="text-[#5C5045]/20 hover:text-red-400 transition-colors">
+                            <i data-lucide="x" class="w-3 h-3"></i>
+                        </button>
+                    </div>
+                `;
+                // Robust price parsing: remove all non-digits
+                const numericPrice = parseInt(String(s.price).replace(/[^0-9]/g, '')) || 0;
+                sum += numericPrice;
+            });
+
+            const formattedTotal = sum.toLocaleString('fr-FR') + ' F';
+
+            list.innerHTML = html;
+            if (finalRecap) finalRecap.innerHTML = html;
+            total.innerText = formattedTotal;
+            if (finalTotal) finalTotal.innerText = formattedTotal;
+
+            // Visibility
+            summaryPanel.classList.add('show-mobile');
+            if (hub) {
+                hub.classList.remove('translate-y-full');
+                hubTotal.innerText = formattedTotal;
+            }
+
+            // Update Badges
+            selectedItems.forEach(item => {
+                const prefix = item.id.charAt(0);
+                const catMap = { 'v': 'visage', 'r': 'regard', 'o': 'onglerie', 'l': 'laser', 'm': 'massages', 'w': 'wax', 'f': 'forfaits' };
+                const catId = catMap[prefix];
+                if (catId) {
+                    const badge = document.getElementById(`badge-${catId}`);
+                    if (badge) {
+                        badge.innerText = parseInt(badge.innerText || '0') + 1;
+                        badge.style.opacity = '1';
+                    }
+                }
+            });
+
+            if (window.lucide) lucide.createIcons();
+        }
+
+        function nextStep() {
+            if (currentStep === 1 && selectedItems.length === 0) {
+                alert('Veuillez sélectionner au moins un soin.');
+                return;
+            }
+            if (currentStep === 2 && (!selectedDate || !selectedTime)) {
+                alert('Veuillez choisir une date et une heure.');
+                return;
+            }
+            goToStep(currentStep + 1);
+        }
+
+        function prevStep() { goToStep(currentStep - 1); }
+
+        function goToStep(step) {
+            document.querySelectorAll('.step-content').forEach(s => s.classList.remove('active'));
+            document.getElementById(`step-${step}`).classList.add('active');
+
+            for (let i = 1; i <= 3; i++) {
+                const dot = document.getElementById(`dot-${i}`);
+                if (i <= step) dot.classList.add('active');
+                else dot.classList.remove('active');
+                if (i < step) document.getElementById(`fill-${i}`).style.width = '100%';
+                else if (document.getElementById(`fill-${i}`)) document.getElementById(`fill-${i}`).style.width = '0%';
+            }
+
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const confirmBtn = document.getElementById('confirmBtn');
+
+            if (step > 1) prevBtn.classList.replace('opacity-0', 'opacity-100'), prevBtn.classList.remove('pointer-events-none');
+            else prevBtn.classList.replace('opacity-100', 'opacity-0'), prevBtn.classList.add('pointer-events-none');
+
+            if (step === 3) { nextBtn.classList.add('hidden'); confirmBtn.classList.remove('hidden'); }
+            else { nextBtn.classList.remove('hidden'); confirmBtn.classList.add('hidden'); }
+
+            // Floating Hub visibility logic
+            const hub = document.getElementById('float-hub');
+            if (hub) {
+                if (step === 3 || selectedItems.length === 0) hub.classList.add('translate-y-full');
+                else hub.classList.remove('translate-y-full');
+            }
+
+            currentStep = step;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Calendar Logic
+        let calDate = new Date();
+        function renderCalendar() {
+            const container = document.getElementById('calendar-days');
+            const monthText = document.getElementById('current-month');
+            const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+
+            monthText.innerText = `${months[calDate.getMonth()]} ${calDate.getFullYear()}`;
+            container.innerHTML = '';
+
+            const first = new Date(calDate.getFullYear(), calDate.getMonth(), 1).getDay();
+            const daysCount = new Date(calDate.getFullYear(), calDate.getMonth() + 1, 0).getDate();
+            const offset = (first === 0) ? 6 : first - 1;
+
+            for (let i = 0; i < offset; i++) container.innerHTML += `<div></div>`;
+
+            const now = new Date();
+            for (let i = 1; i <= daysCount; i++) {
+                const dayDate = new Date(calDate.getFullYear(), calDate.getMonth(), i);
+                const isPast = dayDate < new Date(now.getFullYear(), now.getMonth(), now.getDate());
+                const isToday = dayDate.toDateString() === now.toDateString();
+                const isSelected = selectedDate && dayDate.toDateString() === selectedDate.toDateString();
+
+                container.innerHTML += `
+                    <div onclick="selectDate(${i})" class="calendar-day ${isPast ? 'disabled text-gray-200' : 'hover:bg-[#8FA206]/10'} ${isToday ? 'today' : ''} ${isSelected ? 'active' : ''}">
+                        ${i}
+                    </div>
+                `;
+            }
+        }
+
+        function changeMonth(dir) { calDate.setMonth(calDate.getMonth() + dir); renderCalendar(); }
+
+        function selectDate(day) {
+            selectedDate = new Date(calDate.getFullYear(), calDate.getMonth(), day);
+            renderCalendar();
+            document.getElementById('summary-datetime').classList.remove('hidden');
+            document.getElementById('sum-date').innerText = selectedDate.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
+        }
+
+        function selectTime(time) {
+            selectedTime = time;
+            document.querySelectorAll('.time-btn').forEach(btn => {
+                if (btn.innerText === time) btn.classList.add('bg-[#5C5045]', 'text-white');
+                else btn.classList.remove('bg-[#5C5045]', 'text-white');
+            });
+            document.getElementById('sum-time').innerText = time;
+        }
+
+        function confirmBooking() {
+            const name = document.getElementById('full-name').value;
+            const phone = document.getElementById('user-phone').value;
+            if (!name || !phone) { alert('Veuillez remplir vos coordonnées.'); return; }
+
+            const listStr = selectedItems.map(s => `• ${s.name} (${s.price}F)`).join('\n');
+            const total = document.getElementById('sum-total').innerText;
+
+            const message = `Bonjour Secrets de Beauté ✨, je souhaite réserver :\n\n👤 Nom: ${name}\n📞 Tel: ${phone}\n\n✨ SOINS CHOISIS :\n${listStr}\n\n💰 TOTAL ESTIMÉ : ${total}\n\n📅 Date: ${selectedDate.toLocaleDateString('fr-FR')}\n⏰ Heure: ${selectedTime}`;
+
+            window.open(`https://wa.me/221777470048?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        renderCalendar();
+
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMenu);
+        if (closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMenu);
+    </script>
+</body>
+
+</html>

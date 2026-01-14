@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regard Haute Couture | Secrets de Beauté</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F9F8F3;
+            color: #5C5045;
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-cursive {
+            font-family: 'Great Vibes', cursive;
+            color: #5C5045;
+        }
+
+        /* Spectacular Hero Parallax */
+        .hero-spectacular {
+            height: 90vh;
+            background-image: linear-gradient(to bottom, rgba(249, 248, 243, 0.4), rgba(249, 248, 243, 0.9)), url('../assets/images/eyes.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 4rem;
+        }
+
+        .text-reveal {
+            animation: textReveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+        }
+
+        @keyframes textReveal {
+            0% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .editorial-line {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #8FA206, transparent);
+        }
+
+        .menu-item {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .menu-item:hover {
+            transform: scale(1.02);
+            padding-left: 2rem;
+            color: #8FA206;
+        }
+
+        .menu-item:hover .price-accent {
+            color: #5C5045;
+        }
+
+        /* Floating Micro-Design */
+        @keyframes slow-float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0);
+            }
+
+            33% {
+                transform: translate(10px, -15px) rotate(2deg);
+            }
+
+            66% {
+                transform: translate(-5px, 10px) rotate(-1deg);
+            }
+        }
+
+        .float-decoration {
+            animation: slow-float 8s ease-in-out infinite;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-[#8FA206] selection:text-white">
+
+    <!-- Navigation -->
+    <header class="fixed w-full z-50">
+        <!-- Top Rich Bar -->
+        <div class="bg-[#5C5045] text-white/90 py-2 px-6 hidden md:block">
+            <div
+                class="max-w-7xl mx-auto flex justify-between items-center text-[10px] font-bold tracking-[0.2em] uppercase">
+                <div class="flex gap-6">
+                    <span class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3"></i> Saly, Face au
+                        Centre Commercial</span>
+                    <span class="flex items-center gap-2"><i data-lucide="phone" class="w-3 h-3"></i> 33 843 74 85 / 77
+                        747 00 48</span>
+                </div>
+                <div class="flex gap-4">
+                    <a href="https://instagram.com/saly.sfall" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="https://facebook.com/Secretsdebeauté_sn"
+                        class="hover:text-white transition-colors">Facebook</a>
+                    <a href="https://wa.me/221777470048" class="hover:text-white transition-colors">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+        <!-- Main Nav -->
+        <nav class="bg-white/80 backdrop-blur-lg border-b border-[#5C5045]/5">
+            <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <img src="../assets/images/logo-icon.png" alt="Logo" class="w-12 h-12 object-contain"
+                        style="mix-blend-mode: multiply;">
+                    <a href="../index.html" class="font-cursive text-4xl text-[#5C5045]">Secrets de Beauté</a>
+                </div>
+                <div class="hidden md:flex gap-10 text-[11px] font-bold tracking-[0.25em] text-[#5C5045]/60">
+                    <a href="../index.html" class="hover:text-[#8FA206] transition-colors">L'ACCUEIL</a>
+                    <div class="relative group">
+                        <a href="../services.html"
+                            class="text-[#8FA206] transition-colors flex items-center gap-1 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-full after:h-0.5 after:bg-[#8FA206]">
+                            NOS SERVICES <i data-lucide="chevron-down" class="w-3 h-3"></i>
+                        </a>
+                        <!-- Dropdown Menu -->
+                        <div
+                            class="absolute top-full left-0 w-64 bg-[#F9F8F3] shadow-2xl rounded-2xl py-6 px-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-[#5C5045]/10 mt-2">
+                            <a href="laser.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">ÉPILATION LASER</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Haute
+                                    Technologie</div>
+                            </a>
+                            <a href="onglerie.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">ONGLERIE & PIEDS</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Art & Précision
+                                </div>
+                            </a>
+                            <a href="regard.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">REGARD</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Cils à Cils &
+                                    Soin</div>
+                            </a>
+                            <a href="visage.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">VISAGE</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Éclat & Pureté
+                                </div>
+                            </a>
+                            <a href="massages.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">MASSAGES & CORPS</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Détente Absolue
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="../reservation.html" class="hover:text-[#8FA206] transition-colors">RÉSERVATION</a>
+                    <a href="../gallery.html" class="hover:text-[#8FA206] transition-colors">GALERIE</a>
+                    <a href="../contact.html" class="hover:text-[#8FA206] transition-colors">CONTACT</a>
+                </div>
+                <a href="../reservation.html"
+                    class="hidden lg:block bg-[#8FA206] text-white px-8 py-3 rounded-full text-[10px] font-bold tracking-widest hover:bg-[#5C5045] transition-all transform hover:scale-105 shadow-xl shadow-[#8FA206]/20">
+                    PRENDRE RDV
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Haute Couture Hero -->
+        <section class="hero-spectacular relative flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0 bg-black/10"></div>
+            <!-- Floating Decorative Text -->
+            <div
+                class="absolute top-1/4 left-10 opacity-5 rotate-90 origin-left text-[8rem] font-bold tracking-tighter uppercase whitespace-nowrap select-none pointer-events-none">
+                Eye Excellence • Art of Beauty
+            </div>
+
+            <div class="relative z-10 text-center space-y-12">
+                <div class="overflow-hidden">
+                    <div
+                        class="text-reveal flex items-center justify-center gap-6 text-[#8FA206] font-bold tracking-[0.8em] text-[10px] uppercase">
+                        <span class="h-[1px] w-16 bg-[#8FA206]/30"></span>
+                        Signature Regard
+                        <span class="h-[1px] w-16 bg-[#8FA206]/30"></span>
+                    </div>
+                </div>
+
+                <h1 class="text-[6rem] lg:text-[10rem] font-cursive text-[#5C5045] drop-shadow-2xl leading-[0.8]">
+                    L'Éclat <br> <span class="text-[#8FA206]">Absolu</span>
+                </h1>
+
+                <div class="max-w-xl mx-auto overflow-hidden">
+                    <p
+                        class="text-reveal delay-300 text-lg lg:text-xl text-[#5C5045]/80 italic font-light leading-relaxed">
+                        "Une seule image pour une infinité d'émotions. Redécouvrez la puissance de votre regard à
+                        travers notre expertise haute couture."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-30">
+                <span class="text-[8px] font-bold tracking-[0.5em] uppercase">Découvrir</span>
+                <div class="w-[1px] h-12 bg-black/50 overflow-hidden relative">
+                    <div class="absolute inset-0 bg-[#8FA206] -translate-y-full animate-[scroll_2s_infinite]"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Editorial Section -->
+        <section class="py-40 relative px-6">
+            <!-- Large Back Text -->
+            <div
+                class="absolute top-20 right-0 opacity-[0.02] text-[20rem] font-bold tracking-widest uppercase pointer-events-none">
+                GAZE
+            </div>
+
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-32 items-center">
+                <!-- Artistic Card with the SINGLE Photo -->
+                <div class="relative group">
+                    <div
+                        class="absolute -inset-10 bg-[#8FA206]/5 rounded-full blur-[100px] opacity-50 group-hover:opacity-100 transition-opacity duration-1000">
+                    </div>
+                    <div
+                        class="glass-panel p-10 relative z-10 transition-transform duration-700 group-hover:scale-[1.02]">
+                        <img src="../assets/images/eyes.jpg" alt="Masterpiece"
+                            class="w-full rounded-[3.5rem] shadow-2xl grayscale-[0.2] group-hover:grayscale-0 transition-all duration-1000">
+                        <!-- Floating Quote -->
+                        <div
+                            class="absolute -bottom-10 -right-10 bg-white p-8 rounded-3xl shadow-2xl max-w-[250px] float-decoration border border-[#5C5045]/5">
+                            <i data-lucide="quote" class="w-8 h-8 text-[#8FA206]/20 mb-4"></i>
+                            <p class="text-xs font-light italic leading-relaxed text-[#5C5045]/70">
+                                "La beauté n'est pas dans l'excès, mais dans la justesse d'un trait."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sophisticated Menu -->
+                <div class="space-y-16">
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 mb-4">
+                            <i data-lucide="sparkle" class="w-5 h-5 text-[#8FA206] animate-pulse"></i>
+                            <span class="text-[10px] font-bold tracking-[0.5em] uppercase text-[#8FA206]">Menu de
+                                Soins</span>
+                        </div>
+                        <h2 class="text-6xl font-cursive leading-tight text-[#5C5045]">
+                            Précision <br> & Perfection
+                        </h2>
+                        <div class="editorial-line w-32"></div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="menu-item flex justify-between items-center py-6 border-b border-[#5C5045]/5 group">
+                            <div class="space-y-1">
+                                <h4 class="text-sm font-bold tracking-widest uppercase text-[#5C5045]">Pose classique
+                                </h4>
+                                <p class="text-[9px] text-[#5C5045]/40 tracking-widest">SUBTILITÉ & NATUREL</p>
+                            </div>
+                            <span
+                                class="price-accent font-bold text-2xl text-[#8FA206] tracking-tighter transition-colors">25
+                                000F</span>
+                        </div>
+                        <div class="menu-item flex justify-between items-center py-6 border-b border-[#5C5045]/5 group">
+                            <div class="space-y-1">
+                                <h4 class="text-sm font-bold tracking-widest uppercase text-[#5C5045]">Volume Russe</h4>
+                                <p class="text-[9px] text-[#5C5045]/40 tracking-widest">INTENSITÉ & SOPHISTICATION</p>
+                            </div>
+                            <span
+                                class="price-accent font-bold text-2xl text-[#8FA206] tracking-tighter transition-colors">35
+                                000F</span>
+                        </div>
+                        <div class="menu-item flex justify-between items-center py-6 border-b border-[#5C5045]/5 group">
+                            <div class="space-y-1">
+                                <h4 class="text-sm font-bold tracking-widest uppercase text-[#5C5045]">Cils simple</h4>
+                                <p class="text-[9px] text-[#5C5045]/40 tracking-widest">ÉCLAT QUOTIDIEN</p>
+                            </div>
+                            <span
+                                class="price-accent font-bold text-2xl text-[#8FA206] tracking-tighter transition-colors">30
+                                000F</span>
+                        </div>
+                        <div class="menu-item flex justify-between items-center py-6 group">
+                            <div class="space-y-1">
+                                <h4 class="text-sm font-bold tracking-widest uppercase text-[#5C5045]">Dépose</h4>
+                                <p class="text-[9px] text-[#5C5045]/40 tracking-widest">DOUCEUR & RÉPARATION</p>
+                            </div>
+                            <span
+                                class="price-accent font-bold text-2xl text-[#8FA206] tracking-tighter transition-colors">10
+                                000F</span>
+                        </div>
+                    </div>
+
+                    <!-- Reservation Action -->
+                    <div class="pt-8">
+                        <a href="../reservation.html" class="inline-flex items-center gap-8 group">
+                            <span
+                                class="text-[10px] font-bold tracking-[0.6em] uppercase text-[#5C5045] group-hover:text-[#8FA206] transition-colors">Réserver
+                                l'Excellence</span>
+                            <div
+                                class="w-16 h-16 rounded-full border border-[#5C5045]/20 flex items-center justify-center group-hover:bg-[#8FA206] group-hover:border-[#8FA206] group-hover:text-white transition-all duration-500">
+                                <i data-lucide="arrow-right"
+                                    class="w-6 h-6 transform group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Luxury Footer -->
+        <footer class="bg-[#F9F8F3] py-32 border-t border-[#5C5045]/10 overflow-hidden relative">
+            <!-- Decorative circle -->
+            <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-[#8FA206]/5 rounded-full blur-[100px]"></div>
+
+            <div class="max-w-7xl mx-auto px-6 text-center space-y-16">
+                <div class="space-y-4">
+                    <div class="font-cursive text-7xl text-[#8FA206]">Secrets de Beauté</div>
+                    <div class="text-[11px] font-bold tracking-[0.8em] uppercase text-[#5C5045]/40">Saly • Excellence •
+                        Harmonie</div>
+                </div>
+
+                <!-- Navigation Summary -->
+                <div
+                    class="flex flex-wrap justify-center gap-12 text-[10px] font-bold tracking-[0.4em] text-[#5C5045]/60 uppercase border-y border-[#5C5045]/5 py-12">
+                    <a href="../index.html" class="hover:text-[#8FA206] transition-colors">L'Accueil</a>
+                    <a href="laser.html" class="hover:text-[#8FA206] transition-colors">Laser</a>
+                    <a href="onglerie.html" class="hover:text-[#8FA206] transition-colors">Onglerie</a>
+                    <a href="visage.html" class="hover:text-[#8FA206] transition-colors">Visage</a>
+                    <a href="../contact.html" class="hover:text-[#8FA206] transition-colors">Contact</a>
+                </div>
+
+                <div class="flex justify-center gap-12 opacity-60">
+                    <a href="https://instagram.com/saly.sfall"
+                        class="hover:text-[#8FA206] transition-all transform hover:scale-110"><i data-lucide="instagram"
+                            class="w-7 h-7"></i></a>
+                    <a href="https://facebook.com/Secretsdebeauté_sn"
+                        class="hover:text-[#8FA206] transition-all transform hover:scale-110"><i data-lucide="facebook"
+                            class="w-7 h-7"></i></a>
+                    <a href="https://wa.me/221777470048"
+                        class="hover:text-[#8FA206] transition-all transform hover:scale-110"><i
+                            data-lucide="message-circle" class="w-7 h-7"></i></a>
+                </div>
+
+                <p class="text-[9px] tracking-[0.3em] text-[#5C5045]/30 uppercase font-bold">© 2026 Secrets de Beauté sn
+                    — L'excellence au féminin par Saly Sfall</p>
+            </div>
+        </footer>
+        <!-- Navigation Next/Prev -->
+        <section
+            class="max-w-7xl mx-auto py-12 px-6 border-t border-[#5C5045]/10 flex justify-between items-center text-[10px] font-bold tracking-[0.2em]">
+            <a href="onglerie.html" class="group flex items-center gap-6 hover:text-[#8FA206] transition-all">
+                <div
+                    class="w-14 h-14 rounded-full border border-[#5C5045]/10 bg-white flex items-center justify-center p-3 group-hover:border-[#8FA206]/30 transition-all">
+                    <img src="../assets/images/logo-icon.png" alt="" class="w-full h-full object-contain">
+                </div>
+                <div class="text-left">
+                    <div class="opacity-40 uppercase mb-1">Précédent</div>
+                    <div class="text-2xl text-[#5C5045] group-hover:text-[#8FA206] transition-colors">Onglerie</div>
+                </div>
+            </a>
+            <a href="visage.html" class="group flex items-center gap-6 hover:text-[#8FA206] transition-all text-right">
+                <div class="text-right">
+                    <div class="opacity-40 uppercase mb-1">Suivant</div>
+                    <div class="text-2xl text-[#5C5045] group-hover:text-[#8FA206] transition-colors">Visage</div>
+                </div>
+                <div
+                    class="w-14 h-14 rounded-full border border-[#5C5045]/10 bg-white flex items-center justify-center p-3 group-hover:border-[#8FA206]/30 transition-all">
+                    <img src="../assets/images/logo-icon.png" alt="" class="w-full h-full object-contain">
+                </div>
+            </a>
+        </section>
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        // Parallax script
+        window.addEventListener('scroll', () => {
+            const parallax = document.querySelector('.hero-spectacular');
+            let scrollPosition = window.pageYOffset;
+            parallax.style.backgroundPositionY = (scrollPosition * 0.5) + 'px';
+        });
+
+        // Add class for anims on scroll
+        const observeElements = (elements) => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-soft-in');
+                    }
+                });
+            }, { threshold: 0.1 });
+            elements.forEach(el => observer.observe(el));
+        };
+    </script>
+</body>
+
+</html>

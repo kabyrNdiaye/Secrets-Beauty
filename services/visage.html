@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soin Visage Signature | Secrets de Beauté</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --brand-green: #8FA206;
+            --brand-taupe: #5C5045;
+            --bg-cream: #FDFCF8;
+            --soft-gold: #D4A395;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--brand-taupe);
+            overflow-x: hidden;
+        }
+
+        .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .font-cursive {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        /* Unique Split Hero */
+        .hero-split {
+            min-height: 100vh;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .hero-text-side {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 10% 8%;
+            background: white;
+            position: relative;
+        }
+
+        .hero-image-side {
+            flex: 1.2;
+            min-width: 300px;
+            background: var(--bg-cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 5%;
+        }
+
+        .blob-shape {
+            width: 90%;
+            height: 85%;
+            background: #eee;
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(143, 162, 6, 0.15);
+            animation: blob-bounce 10s ease-in-out infinite;
+            position: relative;
+            z-index: 10;
+        }
+
+        @keyframes blob-bounce {
+
+            0%,
+            100% {
+                border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            }
+
+            33% {
+                border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+            }
+
+            66% {
+                border-radius: 50% 50% 60% 40% / 60% 40% 50% 60%;
+            }
+        }
+
+        /* Radiant Glow Cards */
+        .glow-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(143, 162, 6, 0.1);
+            border-radius: 2.5rem;
+            padding: 2.5rem;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glow-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            background: white;
+            box-shadow: 0 30px 60px rgba(143, 162, 6, 0.1);
+            border-color: var(--brand-green);
+        }
+
+        .price-bubble {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--brand-green);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 20px rgba(143, 162, 6, 0.3);
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            transform: rotate(10deg);
+        }
+
+        /* Botanical Accents */
+        .leaf-float {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.08;
+            filter: grayscale(1);
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            from {
+                transform: rotate(0deg) translate(20px) rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg) translate(20px) rotate(-360deg);
+            }
+        }
+
+        .liquid-bg {
+            position: absolute;
+            bottom: -10%;
+            left: -10%;
+            width: 50%;
+            height: 50%;
+            background: radial-gradient(circle, rgba(143, 162, 6, 0.05) 0%, transparent 70%);
+            z-index: 0;
+            filter: blur(50px);
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Subtle Navigation -->
+    <header class="fixed w-full z-50 px-4 md:py-8 py-4">
+        <nav
+            class="max-w-7xl mx-auto flex justify-between items-center bg-white/40 backdrop-blur-md rounded-full px-6 md:px-8 py-3 md:py-4 border border-white/40 shadow-sm">
+            <div class="flex items-center gap-3 md:gap-4">
+                <img src="../assets/images/logo-icon.png" alt="Logo" class="w-8 h-8 md:w-10 md:h-10 object-contain"
+                    style="mix-blend-mode: multiply;">
+                <a href="../index.html" class="font-cursive text-xl md:text-2xl text-[#5C5045]">Secrets de Beauté</a>
+            </div>
+            <div class="hidden md:flex gap-8 text-[10px] font-semibold tracking-[0.3em] text-[#5C5045]/60 uppercase">
+                <a href="../index.html" class="hover:text-[#8FA206] transition-colors">Accueil</a>
+                <a href="../services.html" class="hover:text-[#8FA206] transition-colors">Services</a>
+                <a href="../reservation.html" class="hover:text-[#8FA206] transition-colors">Réservation</a>
+                <a href="../contact.html" class="hover:text-[#8FA206] transition-colors">Contact</a>
+            </div>
+            <a href="../reservation.html"
+                class="bg-[#5C5045] text-white px-4 md:px-6 py-2 rounded-full text-[8px] md:text-[9px] font-bold tracking-widest hover:bg-[#8FA206] transition-all">
+                BOOK NOW
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Split Hero Section -->
+        <section class="hero-split">
+            <!-- Text Side -->
+            <div class="hero-text-side">
+                <div class="mb-8 md:mb-12">
+                    <span
+                        class="text-[8px] md:text-[10px] font-bold tracking-[0.4em] md:tracking-[0.6em] text-[#8FA206] uppercase inline-block mb-3 md:mb-4">Maison
+                        de Beauté Saly</span>
+                    <h1
+                        class="text-5xl md:text-7xl lg:text-8xl font-serif font-semibold leading-tight md:leading-[0.9] text-[#5C5045]">
+                        L'Éveil du <br> <span
+                            class="font-cursive text-[#8FA206] text-6xl md:text-8xl lg:text-9xl">Visage</span>
+                    </h1>
+                    <div class="w-16 md:w-24 h-1 bg-[#8FA206]/20 mt-6 md:mt-8 mb-8 md:mb-12"></div>
+                </div>
+
+                <div class="space-y-8 max-w-md">
+                    <p class="text-lg text-[#5C5045]/80 font-light leading-relaxed">
+                        Découvrez une approche holistique du soin cutané. Nos protocoles sur-mesure restaurent la
+                        vitalité originelle de votre épiderme par le pouvoir des plantes et du geste expert.
+                    </p>
+                    <div class="flex gap-4">
+                        <div class="flex flex-col">
+                            <span class="text-3xl font-serif font-bold text-[#5C5045]">15k</span>
+                            <span class="text-[8px] font-bold tracking-widest text-[#5C5045]/40 uppercase">Starting
+                                Price</span>
+                        </div>
+                        <div class="w-[1px] h-10 bg-[#5C5045]/10"></div>
+                        <div class="flex flex-col">
+                            <span class="text-3xl font-serif font-bold text-[#5C5045]">60m</span>
+                            <span class="text-[8px] font-bold tracking-widest text-[#5C5045]/40 uppercase">Avg.
+                                Duration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating Decor -->
+                <i data-lucide="leaf" class="leaf-float top-20 right-20 w-32 h-32"></i>
+            </div>
+
+            <!-- Image Side -->
+            <div class="hero-image-side hidden md:flex">
+                <div class="liquid-bg"></div>
+                <div class="blob-shape">
+                    <img src="../assets/images/ab4e37e7-b32f-43eb-b82f-b60c10d95f87.jpg" alt="Visage Radiant"
+                        class="w-full h-full object-cover transform scale-105 hover:scale-110 transition-transform duration-[2000ms]">
+                </div>
+
+                <!-- Floating Card -->
+                <div
+                    class="absolute bottom-10 left-0 bg-white shadow-2xl rounded-3xl p-6 z-20 max-w-[200px] border border-[#8FA206]/10 animate-pulse">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="w-2 h-2 bg-[#8FA206] rounded-full"></div>
+                        <span class="text-[8px] font-bold tracking-widest text-[#5C5045]/60 uppercase">Botanical
+                            Care</span>
+                    </div>
+                    <p class="text-[10px] italic text-[#5C5045]/80">"Une peau nourrie, un esprit apaisé."</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Radiant Menu -->
+        <section class="py-16 md:py-32 px-4 md:px-6 relative overflow-hidden bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-12 md:mb-24 space-y-3 md:space-y-4">
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold text-[#5C5045]">Nos Rituels de <span
+                            class="text-[#8FA206]">Pureté</span></h2>
+                    <p
+                        class="text-[8px] md:text-[10px] font-semibold tracking-[0.3em] md:tracking-[0.5em] text-[#5C5045]/40 uppercase">
+                        Menu de Soins
+                        Signature</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+                    <!-- Soins Simples -->
+                    <div class="glow-card group p-6 md:p-10">
+                        <div class="price-bubble w-16 h-16 md:w-20 md:h-20 text-[0.7rem] md:text-0.9rem">15 000F</div>
+                        <div class="space-y-3 md:space-y-4">
+                            <i data-lucide="sparkles"
+                                class="w-6 h-6 md:w-8 md:h-8 text-[#8FA206] mb-1 md:mb-2 group-hover:rotate-12 transition-transform"></i>
+                            <h3 class="text-lg md:text-xl font-bold tracking-wide uppercase">Extraction + Épilation</h3>
+                            <p class="text-[11px] md:text-xs text-[#5C5045]/60 leading-relaxed font-light">Le duo
+                                essentiel pour un
+                                visage net et des traits redéfinis.</p>
+                            <div class="h-1 w-12 bg-[#8FA206]/20 group-hover:w-full transition-all duration-700"></div>
+                        </div>
+                    </div>
+
+                    <div class="glow-card group">
+                        <div class="price-bubble">20 000F</div>
+                        <div class="space-y-4">
+                            <i data-lucide="droplets"
+                                class="w-8 h-8 text-[#8FA206] mb-2 group-hover:rotate-12 transition-transform"></i>
+                            <h3 class="text-xl font-bold tracking-wide uppercase">Soin avec Extraction</h3>
+                            <p class="text-xs text-[#5C5045]/60 leading-relaxed font-light">Nettoyage profond des pores
+                                et purification intense de l'épiderme.</p>
+                            <div class="h-1 w-12 bg-[#8FA206]/20 group-hover:w-full transition-all duration-700"></div>
+                        </div>
+                    </div>
+
+                    <div class="glow-card group">
+                        <div class="price-bubble">22 000F</div>
+                        <div class="space-y-4">
+                            <i data-lucide="leaf"
+                                class="w-8 h-8 text-[#8FA206] mb-2 group-hover:rotate-12 transition-transform"></i>
+                            <h3 class="text-xl font-bold tracking-wide uppercase">Soin Anti-Acné Argile</h3>
+                            <p class="text-xs text-[#5C5045]/60 leading-relaxed font-light">Équilibre le sébum et apaise
+                                les inflammations naturellement.</p>
+                            <div class="h-1 w-12 bg-[#8FA206]/20 group-hover:w-full transition-all duration-700"></div>
+                        </div>
+                    </div>
+
+                    <div class="glow-card group">
+                        <div class="price-bubble">25 000F</div>
+                        <div class="space-y-4">
+                            <i data-lucide="sun"
+                                class="w-8 h-8 text-[#8FA206] mb-2 group-hover:rotate-12 transition-transform"></i>
+                            <h3 class="text-xl font-bold tracking-wide uppercase">Soin Vitamine C</h3>
+                            <p class="text-xs text-[#5C5045]/60 leading-relaxed font-light">Coup d'éclat immédiat pour
+                                les teints ternes et fatigués.</p>
+                            <div class="h-1 w-12 bg-[#8FA206]/20 group-hover:w-full transition-all duration-700"></div>
+                        </div>
+                    </div>
+
+                    <!-- Spécifiques -->
+                    <div class="glow-card group bg-[#8FA206]/5 border-[#8FA206]/30">
+                        <div class="price-bubble bg-[#5C5045]">40 000F</div>
+                        <div class="space-y-4">
+                            <i data-lucide="zap"
+                                class="w-8 h-8 text-[#8FA206] mb-2 group-hover:rotate-12 transition-transform"></i>
+                            <h3 class="text-xl font-bold tracking-wide uppercase">Hydra Facial</h3>
+                            <p class="text-xs text-[#5C5045]/70 leading-relaxed font-semibold">Le nec plus ultra de
+                                l'hydratation technologique.</p>
+                            <div class="h-1 w-full bg-[#8FA206]/40"></div>
+                        </div>
+                    </div>
+
+                    <div class="glow-card group bg-[#8FA206]/5 border-[#8FA206]/30">
+                        <div class="price-bubble bg-[#5C5045]">50 000F</div>
+                        <div class="space-y-4">
+                            <i data-lucide="star"
+                                class="w-8 h-8 text-[#8FA206] mb-2 group-hover:rotate-12 transition-transform"></i>
+                            <h3 class="text-xl font-bold tracking-wide uppercase">Micro Needling</h3>
+                            <p class="text-xs text-[#5C5045]/70 leading-relaxed font-semibold">Régénération cellulaire
+                                profonde pour une peau lissée.</p>
+                            <div class="h-1 w-full bg-[#8FA206]/40"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Floating Decoration -->
+            <i data-lucide="flower" class="leaf-float bottom-10 left-1/4 w-40 h-40"></i>
+        </section>
+
+        <!-- Navigation Next/Prev -->
+        <section
+            class="max-w-7xl mx-auto py-8 md:py-12 px-4 md:px-6 border-t border-[#5C5045]/10 flex justify-between items-center text-[8px] md:text-[10px] font-bold tracking-[0.2em] bg-white">
+            <a href="regard.html" class="group flex items-center gap-3 md:gap-6 hover:text-[#8FA206] transition-all">
+                <div
+                    class="w-10 h-10 md:w-14 md:h-14 rounded-full border border-[#5C5045]/10 bg-white flex items-center justify-center p-2 md:p-3 group-hover:border-[#8FA206]/30 transition-all">
+                    <img src="../assets/images/logo-icon.png" alt="" class="w-full h-full object-contain">
+                </div>
+                <div class="text-left">
+                    <div class="opacity-40 uppercase mb-0.5 md:mb-1">Précédent</div>
+                    <div class="text-lg md:text-2xl text-[#5C5045] group-hover:text-[#8FA206] transition-colors">Regard
+                    </div>
+                </div>
+            </a>
+            <a href="massages.html"
+                class="group flex items-center gap-3 md:gap-6 hover:text-[#8FA206] transition-all text-right">
+                <div class="text-right">
+                    <div class="opacity-40 uppercase mb-0.5 md:mb-1">Suivant</div>
+                    <div class="text-lg md:text-2xl text-[#5C5045] group-hover:text-[#8FA206] transition-colors">
+                        Massages</div>
+                </div>
+                <div
+                    class="w-10 h-10 md:w-14 md:h-14 rounded-full border border-[#5C5045]/10 bg-white flex items-center justify-center p-2 md:p-3 group-hover:border-[#8FA206]/30 transition-all">
+                    <img src="../assets/images/logo-icon.png" alt="" class="w-full h-full object-contain">
+                </div>
+            </a>
+        </section>
+
+        <!-- Minimal Footer -->
+        <footer class="bg-white py-20 border-t border-[#5C5045]/5">
+            <div class="max-w-7xl mx-auto px-6 flex flex-col items-center space-y-12">
+                <div class="text-center">
+                    <h2 class="font-cursive text-5xl text-[#5C5045] mb-2">Secrets de Beauté</h2>
+                    <p class="text-[9px] font-bold tracking-[0.5em] text-[#8FA206] uppercase">L'Excellence Organique</p>
+                </div>
+
+                <div class="flex gap-8">
+                    <a href="https://instagram.com/saly.sfall"
+                        class="text-[#5C5045]/40 hover:text-[#8FA206] transition-colors"><i data-lucide="instagram"
+                            class="w-5 h-5"></i></a>
+                    <a href="https://facebook.com/Secretsdebeauté_sn"
+                        class="text-[#5C5045]/40 hover:text-[#8FA206] transition-colors"><i data-lucide="facebook"
+                            class="w-5 h-5"></i></a>
+                </div>
+
+                <p class="text-[8px] text-[#5C5045]/30 uppercase tracking-[0.3em]">© 2026 Secrets de Beauté sn — Par
+                    Saly Sfall</p>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        lucide.createIcons();
+
+        // Reveal animations
+        const revealOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        document.querySelectorAll('.glow-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 1s cubic-bezier(0.16, 1, 0.3, 1)';
+            revealObserver.observe(el);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Galerie d'Excellence | Secrets de Beauté</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F9F8F3;
+            color: #5C5045;
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-cursive {
+            font-family: 'Great Vibes', cursive;
+            color: #5C5045;
+        }
+
+        .filter-btn.active {
+            background-color: #8FA206;
+            color: white !important;
+            border-color: #8FA206;
+            box-shadow: 0 10px 20px rgba(143, 162, 6, 0.2);
+        }
+
+        .gallery-item {
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            break-inside: avoid;
+        }
+
+        .gallery-item.hidden {
+            display: none !important;
+            opacity: 0;
+            transform: scale(0.95) translateY(20px);
+        }
+
+        @keyframes soft-fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-soft-in {
+            animation: soft-fade-in 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-[#C5A059] selection:text-white">
+
+    <!-- Navigation -->
+    <header class="fixed w-full z-50">
+        <!-- Top Rich Bar -->
+        <div class="bg-[#5C5045] text-white/90 py-2 px-6 hidden md:block">
+            <div
+                class="max-w-7xl mx-auto flex justify-between items-center text-[10px] font-bold tracking-[0.2em] uppercase">
+                <div class="flex gap-6">
+                    <span class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3"></i> Saly, Face au
+                        Centre Commercial</span>
+                    <span class="flex items-center gap-2"><i data-lucide="phone" class="w-3 h-3"></i> 33 843 74 85 / 77
+                        747 00 48</span>
+                </div>
+                <div class="flex gap-4">
+                    <a href="https://instagram.com/saly.sfall" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="https://facebook.com/Secretsdebeauté_sn"
+                        class="hover:text-white transition-colors">Facebook</a>
+                    <a href="https://wa.me/221777470048" class="hover:text-white transition-colors">WhatsApp</a>
+                </div>
+            </div>
+        </div>
+        <!-- Main Nav -->
+        <nav class="bg-white/80 backdrop-blur-lg border-b border-[#5C5045]/5">
+            <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <img src="assets/images/logo-icon.png" alt="Logo" class="w-12 h-12 object-contain"
+                        style="mix-blend-mode: multiply;">
+                    <a href="index.html" class="font-cursive text-4xl text-[#5C5045]">Secrets de Beauté</a>
+                </div>
+                <div class="hidden md:flex gap-10 text-[11px] font-bold tracking-[0.25em] text-[#5C5045]/60">
+                    <a href="index.html" class="hover:text-[#8FA206] transition-colors">L'ACCUEIL</a>
+                    <div class="relative group">
+                        <a href="services.html" class="hover:text-[#8FA206] transition-colors flex items-center gap-1">
+                            NOS SERVICES <i data-lucide="chevron-down" class="w-3 h-3"></i>
+                        </a>
+                        <!-- Dropdown Menu -->
+                        <div
+                            class="absolute top-full left-0 w-64 bg-[#F9F8F3] shadow-2xl rounded-2xl py-6 px-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-[#5C5045]/10 mt-2">
+                            <a href="services/laser.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">ÉPILATION LASER</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Haute
+                                    Technologie</div>
+                            </a>
+                            <a href="services/onglerie.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">ONGLERIE & PIEDS</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Art & Précision
+                                </div>
+                            </a>
+                            <a href="services/regard.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">REGARD</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Cils à Cils &
+                                    Soin</div>
+                            </a>
+                            <a href="services/visage.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">VISAGE</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Éclat & Pureté
+                                </div>
+                            </a>
+                            <a href="services/massages.html"
+                                class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
+                                <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">MASSAGES & CORPS</div>
+                                <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Détente Absolue
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="reservation.html" class="hover:text-[#8FA206] transition-colors">RÉSERVATION</a>
+                    <a href="gallery.html" class="text-[#8FA206]">GALERIE</a>
+                    <a href="contact.html" class="hover:text-[#8FA206] transition-colors">CONTACT</a>
+                </div>
+                <a href="reservation.html"
+                    class="hidden lg:block bg-[#8FA206] text-white px-8 py-3 rounded-full text-[10px] font-bold tracking-widest hover:bg-[#5C5045] transition-all transform hover:scale-105 shadow-xl shadow-[#8FA206]/20">
+                    PRENDRE RDV
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Soft Luxury Hero -->
+        <section class="relative h-[70vh] flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img src="assets/images/pretty-mani.jpg"
+                    class="w-full h-full object-cover scale-110 blur-sm brightness-75" alt="Hero Background">
+                <div class="absolute inset-0 bg-white/20"></div>
+            </div>
+            <div class="relative z-10 text-center px-6 animate-soft-in">
+                <span class="text-[#8FA206] text-[10px] font-bold tracking-[0.5em] uppercase mb-4 block">L'Art de
+                    Sublimer</span>
+                <h1 class="text-7xl lg:text-9xl font-semibold text-white drop-shadow-2xl mb-6">La Galerie</h1>
+                <p class="text-white/90 text-lg lg:text-xl font-light italic max-w-2xl mx-auto leading-relaxed">
+                    "Découvrez nos créations exclusives, où chaque détail est une signature de votre beauté unique."
+                </p>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="max-w-7xl mx-auto px-6 py-32">
+            <!-- Refined Filters -->
+            <div class="flex flex-wrap justify-center gap-4 mb-24">
+                <button onclick="filterGallery('all')"
+                    class="filter-btn active px-10 py-4 rounded-full text-[10px] font-bold tracking-[0.3em] uppercase bg-white border border-[#5C5045]/10 hover:border-[#8FA206] transition-all">Tout</button>
+                <button onclick="filterGallery('nails')"
+                    class="filter-btn px-10 py-4 rounded-full text-[10px] font-bold tracking-[0.3em] uppercase bg-white border border-[#5C5045]/10 hover:border-[#8FA206] transition-all">Onglerie
+                    & Pieds</button>
+                <button onclick="filterGallery('visage')"
+                    class="filter-btn px-10 py-4 rounded-full text-[10px] font-bold tracking-[0.3em] uppercase bg-white border border-[#5C5045]/10 hover:border-[#8FA206] transition-all">Le
+                    Visage</button>
+                <button onclick="filterGallery('regard')"
+                    class="filter-btn px-10 py-4 rounded-full text-[10px] font-bold tracking-[0.3em] uppercase bg-white border border-[#5C5045]/10 hover:border-[#8FA206] transition-all">Le
+                    Regard</button>
+            </div>
+
+            <!-- Staggered Masonry Grid -->
+            <div id="gallery-grid" class="columns-1 sm:columns-2 lg:columns-3 gap-10 space-y-10">
+
+                <!-- THE HIGHLIGHTED IMAGES FIRST -->
+                <div class="gallery-item group" data-category="nails">
+                    <img src="assets/images/telechargement-16.jpg"
+                        class="w-full rounded-[3rem] shadow-2xl group-hover:scale-[1.03] transition-transform duration-700"
+                        alt="Nail Art Luxe">
+                    <div class="mt-6 text-center opacity-40 group-hover:opacity-100 transition-opacity">
+                        <span class="font-cursive text-2xl">Perfection Ongulaire</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item group" data-category="nails">
+                    <img src="assets/images/pretty-mani.jpg"
+                        class="w-full rounded-[3rem] shadow-2xl group-hover:scale-[1.03] transition-transform duration-700"
+                        alt="Pretty Mani">
+                    <div class="mt-6 text-center opacity-40 group-hover:opacity-100 transition-opacity">
+                        <span class="font-cursive text-2xl">Signature Douceur</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item group" data-category="nails">
+                    <img src="assets/images/telechargement-1.jpg"
+                        class="w-full rounded-[3rem] shadow-2xl group-hover:scale-[1.03] transition-transform duration-700"
+                        alt="Nail Art Detail">
+                    <div class="mt-6 text-center opacity-40 group-hover:opacity-100 transition-opacity">
+                        <span class="font-cursive text-2xl">Art Floral</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item group" data-category="nails">
+                    <img src="assets/images/telechargement-10-copie.jpg"
+                        class="w-full rounded-[3rem] shadow-2xl group-hover:scale-[1.03] transition-transform duration-700"
+                        alt="Manucure Art">
+                    <div class="mt-6 text-center opacity-40 group-hover:opacity-100 transition-opacity">
+                        <span class="font-cursive text-2xl">Éclat Pur</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item group" data-category="nails">
+                    <img src="assets/images/telechargement-12-copie.jpg"
+                        class="w-full rounded-[3rem] shadow-2xl group-hover:scale-[1.03] transition-transform duration-700"
+                        alt="Finition">
+                    <div class="mt-6 text-center opacity-40 group-hover:opacity-100 transition-opacity">
+                        <span class="font-cursive text-2xl">Le Finissage</span>
+                    </div>
+                </div>
+
+                <!-- Visage Highlight -->
+                <div class="gallery-item group" data-category="visage">
+                    <img src="assets/images/014c462c-f88c-472b-bde6-11ba68e1fb2d.jpg"
+                        class="w-full rounded-[3rem] shadow-2xl group-hover:scale-[1.03] transition-transform duration-700"
+                        alt="Soin Visage">
+                    <div class="mt-6 text-center opacity-40 group-hover:opacity-100 transition-opacity">
+                        <span class="font-cursive text-2xl">Éclat Visage</span>
+                    </div>
+                </div>
+
+                <!-- ALL OTHER IMAGES FOR DEPTH -->
+                <div class="gallery-item group" data-category="nails">
+                    <img src="assets/images/017d85de-9b3b-4462-b0f8-e2af01852ad9.jpg"
+                        class="w-full rounded-[3rem] shadow-xl group-hover:scale-[1.03] transition-transform duration-700"
+                        alt="Pédicure">
+                </div>
+                <div class="gallery-item group" data-category="nails">
+                    <img src="assets/images/gallery-1.jpg"
+                        class="w-full rounded-[3rem] shadow-xl group-hover:scale-[1.03] transition-transform duration-700"
+                        alt="Nail Art">
+                </div>
+                <div class="gallery-item group" data-category="regard">
+                    <img src="assets/images/thelasheffectnyc.jpg"
+                        class="w-full rounded-[3rem] shadow-xl group-hover:scale-[1.03] transition-transform duration-700"
+                        alt="Regard">
+                </div>
+                <div class="gallery-item group" data-category="nails">
+                    <img src="assets/images/telechargement-2.jpg"
+                        class="w-full rounded-[3rem] shadow-xl group-hover:scale-[1.03] transition-transform duration-700"
+                        alt="Ongles">
+                </div>
+                <div class="gallery-item group" data-category="nails">
+                    <img src="assets/images/telechargement-7.jpg"
+                        class="w-full rounded-[3rem] shadow-xl group-hover:scale-[1.03] transition-transform duration-700"
+                        alt="Spa Pieds">
+                </div>
+                <div class="gallery-item group" data-category="nails">
+                    <img src="assets/images/telechargement-8.jpg"
+                        class="w-full rounded-[3rem] shadow-xl group-hover:scale-[1.03] transition-transform duration-700"
+                        alt="Pédicure">
+                </div>
+                <div class="gallery-item group" data-category="nails">
+                    <img src="assets/images/telechargement-11-copie.jpg"
+                        class="w-full rounded-[3rem] shadow-xl group-hover:scale-[1.03] transition-transform duration-700"
+                        alt="Couleurs">
+                </div>
+                <div class="gallery-item group" data-category="nails">
+                    <img src="assets/images/telechargement-13.jpg"
+                        class="w-full rounded-[3rem] shadow-xl group-hover:scale-[1.03] transition-transform duration-700"
+                        alt="Beauté Mains">
+                </div>
+                <div class="gallery-item group" data-category="visage">
+                    <img src="assets/images/refined-portrait.jpg"
+                        class="w-full rounded-[3rem] shadow-xl group-hover:scale-[1.03] transition-transform duration-700"
+                        alt="Visage">
+                </div>
+
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center mt-40">
+                <a href="reservation.html"
+                    class="inline-block bg-[#5C5045] text-white px-16 py-6 rounded-full font-bold text-xs tracking-[0.5em] uppercase hover:bg-[#8FA206] transition-all transform hover:scale-105 shadow-2xl">
+                    Réserver votre moment
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#F9F8F3] border-t border-[#5C5045]/5 py-24 text-center">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="font-cursive text-6xl text-[#8FA206] mb-8">Secrets de Beauté</div>
+            <div class="text-[11px] tracking-[0.6em] font-bold uppercase mb-12 text-[#5C5045]/60">Saly • Excellence •
+                Harmonie</div>
+            <div class="flex justify-center gap-12 mb-16">
+                <a href="https://instagram.com/saly.sfall"
+                    class="text-[#5C5045]/40 hover:text-[#8FA206] transition-colors"><i data-lucide="instagram"
+                        class="w-6 h-6"></i></a>
+                <a href="https://facebook.com/Secretsdebeauté_sn"
+                    class="text-[#5C5045]/40 hover:text-[#8FA206] transition-colors"><i data-lucide="facebook"
+                        class="w-6 h-6"></i></a>
+                <a href="https://wa.me/221777470048" class="text-[#5C5045]/40 hover:text-[#8FA206] transition-colors"><i
+                        data-lucide="message-circle" class="w-5 h-5"></i></a>
+            </div>
+            <p class="text-[9px] tracking-widest text-[#5C5045]/30 uppercase font-bold">© 2024 L'art de la beauté à Saly
+                — Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            // Update buttons
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('onclick').includes(`'${category}'`)) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Filter items with staggered appearance
+            items.forEach((item, index) => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.classList.remove('hidden');
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1) translateY(0)';
+                    }, 50 * index);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.95) translateY(20px)';
+                    setTimeout(() => {
+                        item.classList.add('hidden');
+                    }, 500);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
