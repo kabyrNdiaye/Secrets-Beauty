@@ -166,8 +166,7 @@
         <nav
             class="max-w-7xl mx-auto flex justify-between items-center bg-white/40 backdrop-blur-md rounded-full px-6 md:px-8 py-3 md:py-4 border border-white/40 shadow-sm">
             <div class="flex items-center gap-3 md:gap-4">
-                <img src="../assets/images/logo-icon.png" alt="Logo" class="w-8 h-8 md:w-10 md:h-10 object-contain"
-                    style="mix-blend-mode: multiply;">
+                <img src="../assets/images/logo-icon.png" alt="Logo" class="w-8 h-8 md:w-10 md:h-10 object-contain">
                 <a href="../index.html"
                     class="font-cursive text-2xl md:text-5xl text-[#5C5045] whitespace-nowrap">Secrets de Beauté</a>
             </div>
@@ -226,134 +225,93 @@
             </div>
 
             <!-- Vertical Dashboard Mobile Menu (Sub-pages) -->
-            <div id="mobile-menu"
-                class="fixed inset-0 bg-white z-[100] transform translate-x-full transition-transform duration-500 md:hidden flex flex-col overflow-hidden text-left">
+                                <!-- Audace Style Mobile Menu -->
+                    <div id="mobile-menu"
+                        class="fixed inset-0 z-[1000] invisible md:hidden">
+                        
+                        <!-- Backdrop -->
+                        <div id="menu-backdrop" class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300" onclick="toggleMenu()"></div>
+                        
+                        <!-- Menu Panel -->
+                        <div id="menu-panel" class="absolute inset-y-0 left-0 w-[85%] max-w-sm bg-white shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col">
+                            
+                            <!-- Header: Logo & Close -->
+                            <div class="px-6 py-4 flex justify-between items-center bg-white z-20">
+                                <button id="close-menu-btn" class="text-black">
+                                    <i data-lucide="x" class="w-6 h-6"></i>
+                                </button>
+                                <img src="../assets/images/logo-icon.png" alt="Logo" class="h-10 w-auto object-contain">
+                                <div class="w-6"></div> <!-- Spacer for balance -->
+                            </div>
 
-                <!-- Menu Header -->
-                <div
-                    class="px-6 py-5 flex justify-between items-center border-b border-[#5C5045]/10 bg-[#F9F8F3]/90 backdrop-blur-md z-10">
-                    <div class="flex items-center gap-4">
-                        <img src="../assets/images/logo-icon.png" alt="Logo" class="w-14 h-14 object-contain"
-                            style="mix-blend-mode: multiply;">
-                        <span class="font-cursive text-2xl md:text-5xl text-[#5C5045] whitespace-nowrap">Secrets de
-                            Beauté</span>
-                    </div>
-                    <button id="close-menu-btn" class="p-2 text-[#5C5045] hover:text-[#8FA206] transition-colors">
-                        <i data-lucide="x" class="w-8 h-8"></i>
-                    </button>
-                </div>
+                            <!-- Search Bar -->
+                            <div class="px-6 py-4 border-b border-gray-100">
+                                <div class="relative">
+                                    <input type="text" placeholder="Les produits de recherche ici..." 
+                                        class="w-full h-10 px-4 pr-10 bg-white border border-gray-200 text-sm focus:outline-none focus:border-[#C5A059] placeholder-gray-400">
+                                    <button class="absolute right-0 top-0 h-10 w-10 flex items-center justify-center bg-[#C5A059] text-white">
+                                        <i data-lucide="search" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </div>
 
-                <!-- Menu Slider -->
-                <div id="menu-slider" class="flex-1 flex w-[200%] transition-transform duration-300 h-full">
+                            <!-- Slider Container -->
+                            <div class="flex-1 relative overflow-hidden">
+                                <div id="menu-slider" class="absolute inset-0 w-[200%] flex transition-transform duration-300">
+                                    
+                                    <!-- Main Menu List -->
+                                    <div class="w-1/2 h-full overflow-y-auto bg-white">
+                                        <nav class="flex flex-col">
+                                            <a href="../index.html" class="flex items-center px-6 py-4 border-b border-gray-100 border-l-4 border-l-[#C5A059] text-sm font-bold text-black uppercase tracking-wide bg-gray-50">
+                                                Accueil
+                                            </a>
+                                            <a href="../contact.html" class="flex items-center px-6 py-4 border-b border-gray-100 border-l-4 border-l-transparent text-sm font-bold text-black uppercase tracking-wide hover:bg-gray-50">
+                                                À Propos
+                                            </a>
+                                            <button id="open-services-btn" class="flex items-center justify-between px-6 py-4 border-b border-gray-100 border-l-4 border-l-transparent text-sm font-bold text-black uppercase tracking-wide hover:bg-gray-50 w-full">
+                                                <span>Nos Services</span>
+                                                <i data-lucide="chevron-right" class="w-4 h-4 text-gray-400"></i>
+                                            </button>
+                                            <a href="../reservation.html" class="flex items-center px-6 py-4 border-b border-gray-100 border-l-4 border-l-transparent text-sm font-bold text-black uppercase tracking-wide hover:bg-gray-50">
+                                                Réservation
+                                            </a>
+                                            <a href="../contact.html" class="flex items-center px-6 py-4 border-b border-gray-100 border-l-4 border-l-transparent text-sm font-bold text-black uppercase tracking-wide hover:bg-gray-50">
+                                                Contact
+                                            </a>
+                                        </nav>
+                                    </div>
 
-                    <!-- Main View -->
-                    <div class="w-1/2 h-full overflow-y-auto px-8 py-10 flex flex-col bg-white">
-                        <nav class="flex flex-col gap-8">
-                            <a href="../index.html"
-                                class="text-xl font-bold tracking-widest text-[#5C5045] border-b border-[#5C5045]/5 pb-4 uppercase">Accueil</a>
-                            <button id="open-services-btn"
-                                class="flex justify-between items-center text-xl font-bold tracking-widest text-[#5C5045] border-b border-[#5C5045]/5 pb-4 uppercase">
-                                <span>Nos Services</span>
-                                <i data-lucide="chevron-right" class="w-5 h-5 text-[#8FA206]"></i>
-                            </button>
-                            <a href="../reservation.html"
-                                class="text-xl font-bold tracking-widest text-[#5C5045] border-b border-[#5C5045]/5 pb-4 uppercase">Réservation</a>
-                            <a href="../contact.html"
-                                class="text-xl font-bold tracking-widest text-[#5C5045] border-b border-[#5C5045]/5 pb-4 uppercase">Contact</a>
-                        </nav>
-
-                        <div class="mt-auto pt-10">
-                            <p class="text-[10px] font-bold tracking-widest text-[#5C5045]/30 uppercase mb-4">Maison de
-                                Beauté Saly</p>
-                            <div class="flex gap-6">
-                                <a href="https://instagram.com/saly.sfall"
-                                    class="text-[#5C5045]/60 hover:text-[#8FA206] transition-colors"><i
-                                        data-lucide="instagram" class="w-6 h-6"></i></a>
-                                <a href="https://facebook.com/Secretsdebeauté_sn"
-                                    class="text-[#5C5045]/60 hover:text-[#8FA206] transition-colors"><i
-                                        data-lucide="facebook" class="w-6 h-6"></i></a>
+                                    <!-- Submenu List (Services) -->
+                                    <div class="w-1/2 h-full overflow-y-auto bg-white">
+                                        <button id="back-to-main-btn" class="flex items-center gap-2 px-6 py-5 text-sm font-bold text-black uppercase tracking-wide w-full hover:bg-gray-50">
+                                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                                            <span>Back</span>
+                                        </button>
+                                        <nav class="flex flex-col border-t border-gray-100">
+                                            <a href="laser.html" class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-black uppercase tracking-wide hover:bg-gray-50">
+                                                Épilation Laser
+                                            </a>
+                                            <a href="onglerie.html" class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-black uppercase tracking-wide hover:bg-gray-50">
+                                                Onglerie
+                                            </a>
+                                            <a href="regard.html" class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-black uppercase tracking-wide hover:bg-gray-50">
+                                                Regard
+                                            </a>
+                                            <a href="visage.html" class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-black uppercase tracking-wide hover:bg-gray-50">
+                                                Visage
+                                            </a>
+                                            <a href="massages.html" class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-black uppercase tracking-wide hover:bg-gray-50">
+                                                Massages
+                                            </a>
+                                            <a href="forfaits.html" class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-black uppercase tracking-wide hover:bg-gray-50">
+                                                Forfaits
+                                            </a>
+                                        </nav>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Services View -->
-                    <div class="w-1/2 h-full overflow-y-auto px-8 py-10 flex flex-col bg-[#F9F8F3]">
-                        <button id="back-to-main-btn"
-                            class="flex items-center gap-3 text-[#8FA206] font-bold tracking-widest mb-10 pb-4 border-b border-[#8FA206]/10 uppercase text-sm">
-                            <i data-lucide="chevron-left" class="w-5 h-5"></i>
-                            <span>Retour au menu</span>
-                        </button>
-                        <nav class="flex flex-col gap-6">
-                            <a href="laser.html" class="flex items-center justify-between group">
-                                <div class="flex flex-col gap-1">
-                                    <span
-                                        class="text-lg font-bold text-[#5C5045] uppercase tracking-wider group-hover:text-[#8FA206] transition-colors">Épilation
-                                        Laser</span>
-                                    <span class="text-[10px] text-[#5C5045]/40 uppercase tracking-[0.2em]">Haute
-                                        Technologie</span>
-                                </div>
-                                <i data-lucide="arrow-right"
-                                    class="w-4 h-4 text-[#5C5045]/20 group-hover:text-[#8FA206] transition-all"></i>
-                            </a>
-                            <a href="onglerie.html" class="flex items-center justify-between group">
-                                <div class="flex flex-col gap-1">
-                                    <span
-                                        class="text-lg font-bold text-[#5C5045] uppercase tracking-wider group-hover:text-[#8FA206] transition-colors">Onglerie
-                                        & Pieds</span>
-                                    <span class="text-[10px] text-[#5C5045]/40 uppercase tracking-[0.2em]">Art &
-                                        Précision</span>
-                                </div>
-                                <i data-lucide="arrow-right"
-                                    class="w-4 h-4 text-[#5C5045]/20 group-hover:text-[#8FA206] transition-all"></i>
-                            </a>
-                            <a href="regard.html" class="flex items-center justify-between group">
-                                <div class="flex flex-col gap-1">
-                                    <span
-                                        class="text-lg font-bold text-[#5C5045] uppercase tracking-wider group-hover:text-[#8FA206] transition-colors">L'Art
-                                        du Regard</span>
-                                    <span class="text-[10px] text-[#5C5045]/40 uppercase tracking-[0.2em]">Cils à Cils
-                                        & Soin</span>
-                                </div>
-                                <i data-lucide="arrow-right"
-                                    class="w-4 h-4 text-[#5C5045]/20 group-hover:text-[#8FA206] transition-all"></i>
-                            </a>
-                            <a href="visage.html" class="flex items-center justify-between group">
-                                <div class="flex flex-col gap-1">
-                                    <span
-                                        class="text-lg font-bold text-[#5C5045] uppercase tracking-wider group-hover:text-[#8FA206] transition-colors">Soins
-                                        du Visage</span>
-                                    <span class="text-[10px] text-[#5C5045]/40 uppercase tracking-[0.2em]">Éclat &
-                                        Pureté</span>
-                                </div>
-                                <i data-lucide="arrow-right"
-                                    class="w-4 h-4 text-[#5C5045]/20 group-hover:text-[#8FA206] transition-all"></i>
-                            </a>
-                            <a href="massages.html" class="flex items-center justify-between group">
-                                <div class="flex flex-col gap-1">
-                                    <span
-                                        class="text-lg font-bold text-[#5C5045] uppercase tracking-wider group-hover:text-[#8FA206] transition-colors">Massages
-                                        & Corps</span>
-                                    <span class="text-[10px] text-[#5C5045]/40 uppercase tracking-[0.2em]">Détente
-                                        Absolue</span>
-                                </div>
-                                <i data-lucide="arrow-right"
-                                    class="w-4 h-4 text-[#5C5045]/20 group-hover:text-[#8FA206] transition-all"></i>
-                            </a>
-                            <a href="forfaits.html" class="flex items-center justify-between group">
-                                <div class="flex flex-col gap-1">
-                                    <span
-                                        class="text-lg font-bold text-[#5C5045] uppercase tracking-wider group-hover:text-[#8FA206] transition-colors">Forfaits
-                                        d'Exception</span>
-                                    <span class="text-[10px] text-[#5C5045]/40 uppercase tracking-[0.2em]">Expériences
-                                        Complètes</span>
-                                </div>
-                                <i data-lucide="arrow-right"
-                                    class="w-4 h-4 text-[#5C5045]/20 group-hover:text-[#8FA206] transition-all"></i>
-                            </a>
-                        </nav>
-                    </div>
-                </div>
-            </div>
+                    </div>>
         </nav>
     </header>
 
@@ -498,8 +456,9 @@
                     <div class="glow-card group bg-[#8FA206]/5 border-[#8FA206]/30">
                         <div class="price-bubble bg-[#5C5045]">50 000F</div>
                         <div class="space-y-4">
-                            <i data-lucide="star"
-                                class="w-8 h-8 text-[#8FA206] mb-2 group-hover:rotate-12 transition-transform"></i>
+                            <img src="../assets/images/logo-icon.png"
+                                class="w-8 h-8 object-contain mb-2 group-hover:rotate-12 transition-transform"
+                                alt="star">
                             <h3 class="text-xl font-bold tracking-wide uppercase">Micro Needling</h3>
                             <p class="text-xs text-[#5C5045]/70 leading-relaxed font-semibold">Régénération cellulaire
                                 profonde pour une peau lissée.</p>
@@ -614,20 +573,36 @@
             revealObserver.observe(el);
         });
 
+        lucide.createIcons();
+
         // Mobile Menu Logic
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const closeMenuBtn = document.getElementById('close-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        const menuPanel = document.getElementById('menu-panel');
+        const menuBackdrop = document.getElementById('menu-backdrop');
         const menuSlider = document.getElementById('menu-slider');
         const openServicesBtn = document.getElementById('open-services-btn');
         const backToMainBtn = document.getElementById('back-to-main-btn');
 
         function toggleMenu() {
-            mobileMenu.classList.toggle('translate-x-full');
-            document.body.classList.toggle('overflow-hidden');
-            // Reset slider position when closing
-            if (mobileMenu.classList.contains('translate-x-full')) {
-                menuSlider.style.transform = 'translateX(0)';
+            if (mobileMenu.classList.contains('invisible')) {
+                // Open
+                mobileMenu.classList.remove('invisible');
+                setTimeout(() => {
+                    menuBackdrop.classList.remove('opacity-0');
+                    menuPanel.classList.remove('-translate-x-full');
+                }, 10);
+                document.body.classList.add('overflow-hidden');
+            } else {
+                // Close
+                menuBackdrop.classList.add('opacity-0');
+                menuPanel.classList.add('-translate-x-full');
+                setTimeout(() => {
+                    mobileMenu.classList.add('invisible');
+                    menuSlider.style.transform = 'translateX(0)'; // Reset slider
+                }, 300);
+                document.body.classList.remove('overflow-hidden');
             }
         }
 
