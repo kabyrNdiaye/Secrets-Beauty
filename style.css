@@ -516,3 +516,13 @@ footer {
         color: var(--text-dark);
     }
 }
+
+/* Utilities Definitions (previously only in index.html) */
+.font-cursive {
+    font-family: 'Great Vibes', cursive;
+    color: #5C5045;
+}
+
+.font-serif {
+    font-family: 'Cormorant Garamond', serif;
+}
