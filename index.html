@@ -121,7 +121,8 @@
                 <div class="flex items-center gap-4">
                     <img src="assets/images/logo-icon.png" alt="Logo" class="w-14 h-14 object-contain"
                         style="mix-blend-mode: multiply;">
-                    <a href="index.html" class="font-cursive text-5xl text-[#5C5045]">Secrets de Beauté</a>
+                    <a href="index.html" class="font-cursive text-3xl md:text-5xl text-[#5C5045] transition-all">Secrets
+                        de Beauté</a>
                 </div>
                 <div class="hidden md:flex items-center gap-10 text-[15px] font-serif text-[#5C5045]/80">
                     <a href="index.html" class="text-[#8FA206] border-b border-[#8FA206]">L'Accueil</a>
@@ -176,12 +177,12 @@
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
                     <!-- Mobile Menu Overlay -->
-                    <!-- Spectacular Mobile Menu Overlay -->
+                    <!-- Vertical Dashboard Mobile Menu -->
                     <div id="mobile-menu"
-                        class="fixed inset-0 bg-[#F9F8F3] z-[100] transform translate-x-full transition-transform duration-500 md:hidden flex flex-col">
+                        class="fixed inset-0 bg-white z-[100] transform translate-x-full transition-transform duration-500 md:hidden flex flex-col overflow-hidden">
 
                         <!-- Menu Header -->
-                        <div class="p-6 flex justify-between items-center border-b border-[#5C5045]/5">
+                        <div class="p-6 flex justify-between items-center border-b border-[#5C5045]/5 bg-white z-10">
                             <div class="flex items-center gap-3">
                                 <img src="assets/images/logo-icon.png" alt="Logo" class="w-10 h-10 object-contain"
                                     style="mix-blend-mode: multiply;">
@@ -193,68 +194,116 @@
                             </button>
                         </div>
 
-                        <!-- Menu Body -->
-                        <div class="flex-1 overflow-y-auto px-8 py-12 flex flex-col">
-                            <nav class="space-y-12">
-                                <!-- Main Links -->
-                                <div class="space-y-6">
+                        <!-- Menu Slider -->
+                        <div id="menu-slider" class="flex-1 flex w-[200%] transition-transform duration-300 h-full">
+
+                            <!-- Main View -->
+                            <div class="w-1/2 h-full overflow-y-auto px-8 py-10 flex flex-col bg-white">
+                                <nav class="flex flex-col gap-8">
                                     <a href="index.html"
-                                        class="block text-4xl font-serif text-[#5C5045] hover:text-[#8FA206] transition-colors">L'Accueil</a>
-
-                                    <div class="space-y-4">
-                                        <p class="text-[10px] font-bold tracking-[0.3em] text-[#8FA206] uppercase">
-                                            Collections de Soins</p>
-                                        <div class="grid grid-cols-1 gap-4 pl-4 border-l border-[#8FA206]/20">
-                                            <a href="services/laser.html"
-                                                class="text-lg text-[#5C5045]/70 hover:text-[#5C5045] transition-colors">Épilation
-                                                Laser</a>
-                                            <a href="services/onglerie.html"
-                                                class="text-lg text-[#5C5045]/70 hover:text-[#5C5045] transition-colors">Onglerie
-                                                & Pieds</a>
-                                            <a href="services/regard.html"
-                                                class="text-lg text-[#5C5045]/70 hover:text-[#5C5045] transition-colors">L'Art
-                                                du Regard</a>
-                                            <a href="services/visage.html"
-                                                class="text-lg text-[#5C5045]/70 hover:text-[#5C5045] transition-colors">Soins
-                                                du Visage</a>
-                                            <a href="services/massages.html"
-                                                class="text-lg text-[#5C5045]/70 hover:text-[#5C5045] transition-colors">Massages
-                                                & Corps</a>
-                                        </div>
-                                    </div>
-
+                                        class="text-xl font-bold tracking-widest text-[#5C5045] border-b border-[#5C5045]/5 pb-4 uppercase">Accueil</a>
+                                    <button id="open-services-btn"
+                                        class="flex justify-between items-center text-xl font-bold tracking-widest text-[#5C5045] border-b border-[#5C5045]/5 pb-4 uppercase">
+                                        <span>Nos Services</span>
+                                        <i data-lucide="chevron-right" class="w-5 h-5 text-[#8FA206]"></i>
+                                    </button>
                                     <a href="reservation.html"
-                                        class="block text-4xl font-serif text-[#5C5045] hover:text-[#8FA206] transition-colors">Réservation</a>
+                                        class="text-xl font-bold tracking-widest text-[#5C5045] border-b border-[#5C5045]/5 pb-4 uppercase">Réservation</a>
                                     <a href="contact.html"
-                                        class="block text-4xl font-serif text-[#5C5045] hover:text-[#8FA206] transition-colors">Contact</a>
+                                        class="text-xl font-bold tracking-widest text-[#5C5045] border-b border-[#5C5045]/5 pb-4 uppercase">Contact</a>
+                                </nav>
+
+                                <div class="mt-auto pt-10">
+                                    <p class="text-[10px] font-bold tracking-widest text-[#5C5045]/30 uppercase mb-4">
+                                        Maison de Beauté Saly</p>
+                                    <div class="flex gap-6">
+                                        <a href="https://instagram.com/saly.sfall"
+                                            class="text-[#5C5045]/60 hover:text-[#8FA206] transition-colors"><i
+                                                data-lucide="instagram" class="w-6 h-6"></i></a>
+                                        <a href="https://facebook.com/Secretsdebeauté_sn"
+                                            class="text-[#5C5045]/60 hover:text-[#8FA206] transition-colors"><i
+                                                data-lucide="facebook" class="w-6 h-6"></i></a>
+                                    </div>
                                 </div>
-                            </nav>
+                            </div>
 
-                            <!-- CTA in Menu -->
-                            <div class="mt-auto pt-12">
-                                <a href="reservation.html"
-                                    class="block w-full bg-[#5C5045] text-white py-5 rounded-2xl text-center font-bold tracking-[0.2em] shadow-xl hover:bg-[#8FA206] transition-all">
-                                    PRENDRE RDV
-                                </a>
-
-                                <!-- Social & Info -->
-                                <div class="mt-10 flex justify-between items-end">
-                                    <div class="space-y-2">
-                                        <p class="text-[9px] font-bold tracking-widest text-[#5C5045]/40 uppercase">
-                                            Suivez-nous</p>
-                                        <div class="flex gap-4">
-                                            <a href="https://instagram.com/saly.sfall"
-                                                class="text-[#5C5045]/60 hover:text-[#8FA206]"><i
-                                                    data-lucide="instagram" class="w-5 h-5"></i></a>
-                                            <a href="#" class="text-[#5C5045]/60 hover:text-[#8FA206]"><i
-                                                    data-lucide="facebook" class="w-5 h-5"></i></a>
+                            <!-- Services View -->
+                            <div class="w-1/2 h-full overflow-y-auto px-8 py-10 flex flex-col bg-[#F9F8F3]">
+                                <button id="back-to-main-btn"
+                                    class="flex items-center gap-3 text-[#8FA206] font-bold tracking-widest mb-10 pb-4 border-b border-[#8FA206]/10 uppercase text-sm">
+                                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                                    <span>Retour au menu</span>
+                                </button>
+                                <nav class="flex flex-col gap-6">
+                                    <a href="services/laser.html" class="flex items-center justify-between group">
+                                        <div class="flex flex-col gap-1">
+                                            <span
+                                                class="text-lg font-bold text-[#5C5045] uppercase tracking-wider group-hover:text-[#8FA206] transition-colors">Épilation
+                                                Laser</span>
+                                            <span class="text-[10px] text-[#5C5045]/40 uppercase tracking-[0.2em]">Haute
+                                                Technologie</span>
                                         </div>
-                                    </div>
-                                    <div class="text-right">
-                                        <p class="text-[10px] text-[#5C5045]/60">Saly, Sénégal</p>
-                                        <p class="text-[10px] font-bold text-[#5C5045]">+221 77 747 00 48</p>
-                                    </div>
-                                </div>
+                                        <i data-lucide="arrow-right"
+                                            class="w-4 h-4 text-[#5C5045]/20 group-hover:text-[#8FA206] transition-all"></i>
+                                    </a>
+                                    <a href="services/onglerie.html" class="flex items-center justify-between group">
+                                        <div class="flex flex-col gap-1">
+                                            <span
+                                                class="text-lg font-bold text-[#5C5045] uppercase tracking-wider group-hover:text-[#8FA206] transition-colors">Onglerie
+                                                & Pieds</span>
+                                            <span class="text-[10px] text-[#5C5045]/40 uppercase tracking-[0.2em]">Art &
+                                                Précision</span>
+                                        </div>
+                                        <i data-lucide="arrow-right"
+                                            class="w-4 h-4 text-[#5C5045]/20 group-hover:text-[#8FA206] transition-all"></i>
+                                    </a>
+                                    <a href="services/regard.html" class="flex items-center justify-between group">
+                                        <div class="flex flex-col gap-1">
+                                            <span
+                                                class="text-lg font-bold text-[#5C5045] uppercase tracking-wider group-hover:text-[#8FA206] transition-colors">L'Art
+                                                du Regard</span>
+                                            <span class="text-[10px] text-[#5C5045]/40 uppercase tracking-[0.2em]">Cils
+                                                à Cils & Soin</span>
+                                        </div>
+                                        <i data-lucide="arrow-right"
+                                            class="w-4 h-4 text-[#5C5045]/20 group-hover:text-[#8FA206] transition-all"></i>
+                                    </a>
+                                    <a href="services/visage.html" class="flex items-center justify-between group">
+                                        <div class="flex flex-col gap-1">
+                                            <span
+                                                class="text-lg font-bold text-[#5C5045] uppercase tracking-wider group-hover:text-[#8FA206] transition-colors">Soins
+                                                du Visage</span>
+                                            <span class="text-[10px] text-[#5C5045]/40 uppercase tracking-[0.2em]">Éclat
+                                                & Pureté</span>
+                                        </div>
+                                        <i data-lucide="arrow-right"
+                                            class="w-4 h-4 text-[#5C5045]/20 group-hover:text-[#8FA206] transition-all"></i>
+                                    </a>
+                                    <a href="services/massages.html" class="flex items-center justify-between group">
+                                        <div class="flex flex-col gap-1">
+                                            <span
+                                                class="text-lg font-bold text-[#5C5045] uppercase tracking-wider group-hover:text-[#8FA206] transition-colors">Massages
+                                                & Corps</span>
+                                            <span
+                                                class="text-[10px] text-[#5C5045]/40 uppercase tracking-[0.2em]">Détente
+                                                Absolue</span>
+                                        </div>
+                                        <i data-lucide="arrow-right"
+                                            class="w-4 h-4 text-[#5C5045]/20 group-hover:text-[#8FA206] transition-all"></i>
+                                    </a>
+                                    <a href="services/forfaits.html" class="flex items-center justify-between group">
+                                        <div class="flex flex-col gap-1">
+                                            <span
+                                                class="text-lg font-bold text-[#5C5045] uppercase tracking-wider group-hover:text-[#8FA206] transition-colors">Forfaits
+                                                d'Exception</span>
+                                            <span
+                                                class="text-[10px] text-[#5C5045]/40 uppercase tracking-[0.2em]">Expériences
+                                                Complètes</span>
+                                        </div>
+                                        <i data-lucide="arrow-right"
+                                            class="w-4 h-4 text-[#5C5045]/20 group-hover:text-[#8FA206] transition-all"></i>
+                                    </a>
+                                </nav>
                             </div>
                         </div>
                     </div>
@@ -735,14 +784,29 @@
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const closeMenuBtn = document.getElementById('close-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        const menuSlider = document.getElementById('menu-slider');
+        const openServicesBtn = document.getElementById('open-services-btn');
+        const backToMainBtn = document.getElementById('back-to-main-btn');
 
         function toggleMenu() {
             mobileMenu.classList.toggle('translate-x-full');
             document.body.classList.toggle('overflow-hidden');
+            // Reset slider position when closing
+            if (mobileMenu.classList.contains('translate-x-full')) {
+                menuSlider.style.transform = 'translateX(0)';
+            }
         }
 
         mobileMenuBtn.addEventListener('click', toggleMenu);
         closeMenuBtn.addEventListener('click', toggleMenu);
+
+        openServicesBtn.addEventListener('click', () => {
+            menuSlider.style.transform = 'translateX(-50%)';
+        });
+
+        backToMainBtn.addEventListener('click', () => {
+            menuSlider.style.transform = 'translateX(0)';
+        });
     </script>
 </body>
 
