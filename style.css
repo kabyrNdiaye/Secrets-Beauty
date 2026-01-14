@@ -174,13 +174,11 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    padding: 20px 0;
     transition: var(--transition);
 }
 
 header.scrolled {
     background: rgba(255, 255, 255, 0.98);
-    padding: 10px 0;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
 

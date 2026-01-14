@@ -68,7 +68,7 @@
 <body class="antialiased selection:bg-[#C5A059] selection:text-white">
 
     <!-- Navigation -->
-    <header class="fixed w-full z-50">
+    <header class="fixed top-0 w-full z-50">
         <!-- Top Rich Bar -->
         <div class="bg-[#5C5045] text-white/90 py-2 px-6 hidden md:block">
             <div
@@ -80,7 +80,7 @@
                         747 00 48</span>
                 </div>
                 <div class="flex gap-4">
-                    <a href="https://instagram.com/saly.sfall" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="https://instagram.com/dakar.sfall" class="hover:text-white transition-colors">Instagram</a>
                     <a href="https://facebook.com/Secretsdebeauté_sn"
                         class="hover:text-white transition-colors">Facebook</a>
                     <a href="https://wa.me/221777470048" class="hover:text-white transition-colors">WhatsApp</a>
@@ -88,11 +88,13 @@
             </div>
         </div>
         <!-- Main Nav -->
-        <nav class="bg-white/80 backdrop-blur-lg border-b border-[#5C5045]/5">
+        <nav class="bg-[#F9F8F3]/90 backdrop-blur-md border-b border-[#5C5045]/10">
             <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
                 <div class="flex items-center gap-4">
-                    <img src="assets/images/logo-icon.png" alt="Logo" class="w-12 h-12 object-contain">
-                    <a href="index.html" class="font-cursive text-4xl text-[#5C5045]">Secrets de Beauté</a>
+                    <img src="assets/images/logo-icon.png" alt="Logo" class="w-14 h-14 object-contain">
+                    <a href="index.html"
+                        class="font-cursive text-2xl md:text-5xl text-[#5C5045] transition-all whitespace-nowrap">Secrets
+                        de Beauté</a>
                 </div>
                 <div class="hidden md:flex items-center gap-10 text-[15px] font-serif text-[#5C5045]/80">
                     <a href="index.html" class="hover:text-[#8FA206] transition-colors">L'Accueil</a>
@@ -136,10 +138,13 @@
                         </div>
                     </div>
                     <a href="reservation.html" class="hover:text-[#8FA206] transition-colors">Réservation</a>
-                    <a href="gallery.html" class="text-[#8FA206] border-b border-[#8FA206]">Galerie</a>
                     <a href="contact.html" class="hover:text-[#8FA206] transition-colors">Contact</a>
                 </div>
                 <div class="flex items-center gap-4">
+                    <a href="reservation.html"
+                        class="hidden lg:flex items-center gap-2 bg-[#5C5045] text-white px-7 py-3 rounded-full text-[10px] font-bold tracking-widest hover:bg-[#8FA206] transition-all transform hover:scale-105 shadow-lg shadow-[#5C5045]/20">
+                        PRENDRE RDV
+                    </a>
                     <button id="mobile-menu-btn" class="md:hidden text-[#5C5045]">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
@@ -497,7 +502,14 @@
         }
 
         if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMenu);
-        if (closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                setTimeout(toggleMenu, 100);
+            });
+        });
 
         if (openServicesBtn) {
             openServicesBtn.addEventListener('click', () => {

@@ -32,11 +32,22 @@
 
         /* Spectacular Hero Parallax */
         .hero-spectacular {
-            height: 90vh;
+            min-height: 80vh;
             background-image: linear-gradient(to bottom, rgba(249, 248, 243, 0.4), rgba(249, 248, 243, 0.9)), url('../assets/images/eyes.jpg');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero-spectacular {
+                height: auto;
+                min-height: 70vh;
+                padding-top: 120px;
+                padding-bottom: 60px;
+                background-attachment: scroll;
+                /* Mobile parallax fix */
+            }
         }
 
         .glass-panel {
@@ -107,7 +118,7 @@
 <body class="antialiased selection:bg-[#8FA206] selection:text-white">
 
     <!-- Navigation -->
-    <header class="fixed w-full z-50">
+    <header class="fixed top-0 w-full z-50">
         <!-- Top Rich Bar -->
         <div class="bg-[#5C5045] text-white/90 py-2 px-6 hidden md:block">
             <div
@@ -119,7 +130,7 @@
                         747 00 48</span>
                 </div>
                 <div class="flex gap-4">
-                    <a href="https://instagram.com/saly.sfall" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="https://instagram.com/dakar.sfall" class="hover:text-white transition-colors">Instagram</a>
                     <a href="https://facebook.com/Secretsdebeauté_sn"
                         class="hover:text-white transition-colors">Facebook</a>
                     <a href="https://wa.me/221777470048" class="hover:text-white transition-colors">WhatsApp</a>
@@ -127,18 +138,19 @@
             </div>
         </div>
         <!-- Main Nav -->
-        <nav class="bg-white/80 backdrop-blur-lg border-b border-[#5C5045]/5">
+        <nav class="bg-[#F9F8F3]/90 backdrop-blur-md border-b border-[#5C5045]/10">
             <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
                 <div class="flex items-center gap-4">
-                    <img src="../assets/images/logo-icon.png" alt="Logo" class="w-12 h-12 object-contain">
+                    <img src="../assets/images/logo-icon.png" alt="Logo" class="w-14 h-14 object-contain">
                     <a href="../index.html"
-                        class="font-cursive text-2xl md:text-5xl text-[#5C5045] whitespace-nowrap">Secrets de Beauté</a>
+                        class="font-cursive text-2xl md:text-5xl text-[#5C5045] transition-all whitespace-nowrap">Secrets
+                        de Beauté</a>
                 </div>
                 <div class="hidden md:flex items-center gap-10 text-[15px] font-serif text-[#5C5045]/80">
                     <a href="../index.html" class="hover:text-[#8FA206] transition-colors">L'Accueil</a>
                     <div class="relative group">
                         <a href="../services.html"
-                            class="text-[#8FA206] border-b border-[#8FA206] flex items-center gap-1">
+                            class="text-[#8FA206] border-b border-[#8FA206] transition-colors flex items-center gap-1">
                             Nos Services <i data-lucide="chevron-down" class="w-3 h-3"></i>
                         </a>
                         <!-- Dropdown Menu -->
@@ -177,181 +189,120 @@
                         </div>
                     </div>
                     <a href="../reservation.html" class="hover:text-[#8FA206] transition-colors">Réservation</a>
-                    <a href="../gallery.html" class="hover:text-[#8FA206] transition-colors">Galerie</a>
                     <a href="../contact.html" class="hover:text-[#8FA206] transition-colors">Contact</a>
                 </div>
-                <a href="laser.html" class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
-                    <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">ÉPILATION LASER</div>
-                    <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Haute
-                        Technologie</div>
-                </a>
-                <a href="onglerie.html" class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
-                    <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">ONGLERIE & PIEDS</div>
-                    <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Art & Précision
-                    </div>
-                </a>
-                <a href="regard.html" class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
-                    <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">REGARD</div>
-                    <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Cils à Cils &
-                        Soin</div>
-                </a>
-                <a href="visage.html" class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
-                    <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">VISAGE</div>
-                    <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Éclat & Pureté
-                    </div>
-                </a>
-                <a href="massages.html" class="block px-6 py-3 hover:bg-[#8FA206]/5 rounded-xl transition-colors">
-                    <div class="text-[10px] font-bold tracking-widest text-[#5C5045]">MASSAGES & CORPS</div>
-                    <div class="text-[8px] text-[#5C5045]/40 mt-1 uppercase tracking-wider">Détente Absolue
-                    </div>
-                </a>
+                <div class="flex items-center gap-4">
+                    <a href="../reservation.html"
+                        class="hidden lg:flex items-center gap-2 bg-[#5C5045] text-white px-7 py-3 rounded-full text-[10px] font-bold tracking-widest hover:bg-[#8FA206] transition-all transform hover:scale-105 shadow-lg shadow-[#5C5045]/20">
+                        PRENDRE RDV
+                    </a>
+                    <button id="mobile-menu-btn" class="md:hidden text-[#5C5045]">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
             </div>
-            </div>
-            <a href="../reservation.html" class="hover:text-[#8FA206] transition-colors">RÉSERVATION</a>
-            <a href="../gallery.html" class="hover:text-[#8FA206] transition-colors">GALERIE</a>
-            <a href="../contact.html" class="hover:text-[#8FA206] transition-colors">CONTACT</a>
-            </div>
-            <div class="flex items-center gap-4">
-                <button id="mobile-menu-btn" class="md:hidden text-[#5C5045]">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
+        </nav>
+    </header>
+    <!-- Vertical Dashboard Mobile Menu (Sub-pages) -->
+    <!-- Audace Style Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-[1000] invisible md:hidden h-screen w-screen">
+
+        <!-- Backdrop -->
+        <div id="menu-backdrop" class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300"
+            onclick="toggleMenu()"></div>
+
+        <!-- Menu Panel -->
+        <div id="menu-panel"
+            class="absolute inset-y-0 left-0 w-[85%] max-w-sm h-full bg-white shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col">
+
+            <!-- Header: Logo & Close -->
+            <div class="px-6 py-4 flex justify-between items-center bg-white z-20">
+                <button id="close-menu-btn" class="text-black">
+                    <i data-lucide="x" class="w-6 h-6"></i>
                 </button>
-                <!-- Vertical Dashboard Mobile Menu (Sub-pages) -->
-                <!-- Audace Style Mobile Menu -->
-                <div id="mobile-menu" class="fixed inset-0 z-[1000] invisible md:hidden h-screen w-screen">
+                <img src="../assets/images/logo-icon.png" alt="Logo" class="h-10 w-auto object-contain">
+                <div class="w-6"></div> <!-- Spacer for balance -->
+            </div>
 
-                    <!-- Backdrop -->
-                    <div id="menu-backdrop"
-                        class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300"
-                        onclick="toggleMenu()"></div>
 
-                    <!-- Menu Panel -->
-                    <div id="menu-panel"
-                        class="absolute inset-y-0 left-0 w-[85%] max-w-sm h-full bg-white shadow-2xl transform -translate-x-full transition-transform duration-300 flex flex-col">
 
-                        <!-- Header: Logo & Close -->
-                        <div class="px-6 py-4 flex justify-between items-center bg-white z-20">
-                            <button id="close-menu-btn" class="text-black">
-                                <i data-lucide="x" class="w-6 h-6"></i>
+            <!-- Slider Container -->
+            <div class="flex-1 relative overflow-hidden">
+                <div id="menu-slider" class="absolute inset-0 w-[200%] flex transition-transform duration-300">
+
+                    <!-- Main Menu List -->
+                    <div class="w-1/2 h-full overflow-y-auto bg-white">
+                        <nav class="flex flex-col">
+                            <a href="../index.html"
+                                class="flex items-center px-6 py-4 border-b border-gray-100 border-l-4 border-l-[#C5A059] text-sm font-bold text-[#5C5045] uppercase tracking-wide bg-gray-50">
+                                Accueil
+                            </a>
+                            <button id="open-services-btn"
+                                class="flex items-center justify-between px-6 py-4 border-b border-gray-100 border-l-4 border-l-transparent text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50 w-full">
+                                <span>Nos Services</span>
+                                <i data-lucide="chevron-right" class="w-4 h-4 text-gray-400"></i>
                             </button>
-                            <img src="../assets/images/logo-icon.png" alt="Logo" class="h-10 w-auto object-contain">
-                            <div class="w-6"></div> <!-- Spacer for balance -->
-                        </div>
+                            <a href="../reservation.html"
+                                class="flex items-center px-6 py-4 border-b border-gray-100 border-l-4 border-l-transparent text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
+                                Réservation
+                            </a>
+                            <a href="../contact.html"
+                                class="flex items-center px-6 py-4 border-b border-gray-100 border-l-4 border-l-transparent text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
+                                Contact
+                            </a>
+                        </nav>
+                    </div>
 
-
-
-                        <!-- Slider Container -->
-                        <div class="flex-1 relative overflow-hidden">
-                            <div id="menu-slider"
-                                class="absolute inset-0 w-[200%] flex transition-transform duration-300">
-
-                                <!-- Main Menu List -->
-                                <div class="w-1/2 h-full overflow-y-auto bg-white">
-                                    <nav class="flex flex-col">
-                                        <a href="../index.html"
-                                            class="flex items-center px-6 py-4 border-b border-gray-100 border-l-4 border-l-[#C5A059] text-sm font-bold text-[#5C5045] uppercase tracking-wide bg-gray-50">
-                                            Accueil
-                                        </a>
-                                        <button id="open-services-btn"
-                                            class="flex items-center justify-between px-6 py-4 border-b border-gray-100 border-l-4 border-l-transparent text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50 w-full">
-                                            <span>Nos Services</span>
-                                            <i data-lucide="chevron-right" class="w-4 h-4 text-gray-400"></i>
-                                        </button>
-                                        <a href="../reservation.html"
-                                            class="flex items-center px-6 py-4 border-b border-gray-100 border-l-4 border-l-transparent text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
-                                            Réservation
-                                        </a>
-                                        <a href="../contact.html"
-                                            class="flex items-center px-6 py-4 border-b border-gray-100 border-l-4 border-l-transparent text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
-                                            Contact
-                                        </a>
-                                    </nav>
-                                </div>
-
-                                <!-- Submenu List (Services) -->
-                                <div class="w-1/2 h-full overflow-y-auto bg-white">
-                                    <button id="back-to-main-btn"
-                                        class="flex items-center gap-2 px-6 py-5 text-sm font-bold text-[#5C5045] uppercase tracking-wide w-full hover:bg-gray-50">
-                                        <i data-lucide="chevron-left" class="w-4 h-4"></i>
-                                        <span>Back</span>
-                                    </button>
-                                    <nav class="flex flex-col border-t border-gray-100">
-                                        <a href="../services.html"
-                                            class="flex items-center justify-between px-6 py-4 border-b border-[#8FA206]/20 text-sm font-bold text-[#8FA206] uppercase tracking-[0.1em] bg-[#8FA206]/5">
-                                            <span>DÉCOUVRIR TOUT LE MENU</span>
-                                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                                        </a>
-                                        <a href="laser.html"
-                                            class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
-                                            Épilation Laser
-                                        </a>
-                                        <a href="onglerie.html"
-                                            class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
-                                            Onglerie
-                                        </a>
-                                        <a href="regard.html"
-                                            class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
-                                            Regard
-                                        </a>
-                                        <a href="visage.html"
-                                            class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
-                                            Visage
-                                        </a>
-                                        <a href="massages.html"
-                                            class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
-                                            Massages
-                                        </a>
-                                        <a href="forfaits.html"
-                                            class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
-                                            Forfaits
-                                        </a>
-                                        <nav class="flex flex-col border-t border-gray-100">
-                                            <a href="laser.html"
-                                                class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
-                                                Épilation Laser
-                                            </a>
-                                            <a href="onglerie.html"
-                                                class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
-                                                Onglerie
-                                            </a>
-                                            <nav class="flex flex-col border-t border-gray-100">
-                                                <a href="laser.html"
-                                                    class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
-                                                    Épilation Laser
-                                                </a>
-                                                <a href="onglerie.html"
-                                                    class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
-                                                    Onglerie
-                                                </a>
-                                                <a href="regard.html"
-                                                    class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
-                                                    Regard
-                                                </a>
-                                                <a href="visage.html"
-                                                    class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
-                                                    Visage
-                                                </a>
-                                                <a href="massages.html"
-                                                    class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
-                                                    Massages
-                                                </a>
-                                                <a href="forfaits.html"
-                                                    class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
-                                                    Forfaits
-                                                </a>
-                                            </nav>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Submenu List (Services) -->
+                    <div class="w-1/2 h-full overflow-y-auto bg-white">
+                        <button id="back-to-main-btn"
+                            class="flex items-center gap-2 px-6 py-5 text-sm font-bold text-[#5C5045] uppercase tracking-wide w-full hover:bg-gray-50">
+                            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                            <span>Back</span>
+                        </button>
+                        <nav class="flex flex-col border-t border-gray-100">
+                            <a href="../services.html"
+                                class="flex items-center justify-between px-6 py-4 border-b border-[#8FA206]/20 text-sm font-bold text-[#8FA206] uppercase tracking-[0.1em] bg-[#8FA206]/5">
+                                <span>DÉCOUVRIR TOUT LE MENU</span>
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                            <a href="laser.html"
+                                class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
+                                Épilation Laser
+                            </a>
+                            <a href="onglerie.html"
+                                class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
+                                Onglerie
+                            </a>
+                            <a href="regard.html"
+                                class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
+                                Regard
+                            </a>
+                            <a href="visage.html"
+                                class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
+                                Visage
+                            </a>
+                            <a href="massages.html"
+                                class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
+                                Massages
+                            </a>
+                            <a href="forfaits.html"
+                                class="flex items-center px-6 py-4 border-b border-gray-100 text-sm font-bold text-[#5C5045] uppercase tracking-wide hover:bg-gray-50">
+                                Forfaits
+                            </a>
+                        </nav>
                     </div>
                 </div>
             </div>
-            <a href="../reservation.html"
-                class="hidden lg:flex items-center gap-2 bg-[#5C5045] text-white px-7 py-3 rounded-full text-[10px] font-bold tracking-widest hover:bg-[#8FA206] transition-all transform hover:scale-105 shadow-lg shadow-[#5C5045]/20">
-                PRENDRE RDV
-            </a>
-            </div>
-            </div>
-        </nav>
+        </div>
+    </div>
+    <a href="../reservation.html"
+        class="hidden lg:flex items-center gap-2 bg-[#5C5045] text-white px-7 py-3 rounded-full text-[10px] font-bold tracking-widest hover:bg-[#8FA206] transition-all transform hover:scale-105 shadow-lg shadow-[#5C5045]/20">
+        PRENDRE RDV
+    </a>
+    </div>
+    </div>
+    </nav>
     </header>
 
     <main>
@@ -374,7 +325,7 @@
                     </div>
                 </div>
 
-                <h1 class="text-5xl lg:text-[10rem] font-cursive text-[#5C5045] drop-shadow-2xl leading-[0.8]">
+                <h1 class="text-6xl md:text-[10rem] font-cursive text-[#5C5045] drop-shadow-2xl leading-[0.8]">
                     L'Éclat <br> <span class="text-[#8FA206]">Absolu</span>
                 </h1>
 
@@ -433,7 +384,7 @@
                             <span class="text-[10px] font-bold tracking-[0.5em] uppercase text-[#8FA206]">Menu de
                                 Soins</span>
                         </div>
-                        <h2 class="text-4xl md:text-6xl font-cursive leading-tight text-[#5C5045]">
+                        <h2 class="text-5xl md:text-6xl font-cursive leading-tight text-[#5C5045]">
                             Précision <br> & Perfection
                         </h2>
                         <div class="editorial-line w-32"></div>
@@ -621,6 +572,13 @@
 
         if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMenu);
         if (closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMenu);
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                setTimeout(toggleMenu, 100);
+            });
+        });
 
         if (openServicesBtn) {
             openServicesBtn.addEventListener('click', () => {

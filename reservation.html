@@ -179,7 +179,7 @@
     <div class="liquid-bg bottom-0 left-0 w-[600px] h-[600px] bg-[#F4F1EA]"></div>
 
     <!-- Navigation -->
-    <header class="fixed w-full z-50">
+    <header class="fixed top-0 w-full z-50">
         <!-- Top Rich Bar -->
         <div class="bg-[#5C5045] text-white/90 py-2 px-6 hidden md:block">
             <div
@@ -191,7 +191,7 @@
                         747 00 48</span>
                 </div>
                 <div class="flex gap-4">
-                    <a href="https://instagram.com/saly.sfall" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="https://instagram.com/dakar.sfall" class="hover:text-white transition-colors">Instagram</a>
                     <a href="https://facebook.com/Secretsdebeauté_sn"
                         class="hover:text-white transition-colors">Facebook</a>
                     <a href="https://wa.me/221777470048" class="hover:text-white transition-colors">WhatsApp</a>
@@ -248,10 +248,15 @@
                             </a>
                         </div>
                     </div>
-                    <a href="reservation.html" class="text-[#8FA206] border-b border-[#8FA206]">Réservation</a>
+                    <a href="reservation.html"
+                        class="text-[#8FA206] border-b border-[#8FA206] transition-colors">Réservation</a>
                     <a href="contact.html" class="hover:text-[#8FA206] transition-colors">Contact</a>
                 </div>
                 <div class="flex items-center gap-4">
+                    <a href="reservation.html"
+                        class="hidden lg:flex items-center gap-2 bg-[#5C5045] text-white px-7 py-3 rounded-full text-[10px] font-bold tracking-widest hover:bg-[#8FA206] transition-all transform hover:scale-105 shadow-lg shadow-[#5C5045]/20">
+                        PRENDRE RDV
+                    </a>
                     <button id="mobile-menu-btn" class="md:hidden text-[#5C5045]">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
@@ -1161,7 +1166,14 @@
         }
 
         if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMenu);
-        if (closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                setTimeout(toggleMenu, 100);
+            });
+        });
 
         if (openServicesBtn) {
             openServicesBtn.addEventListener('click', () => {

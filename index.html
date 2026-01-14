@@ -96,7 +96,7 @@
 <body class="antialiased selection:bg-[#C5A059] selection:text-white">
 
     <!-- Navigation -->
-    <header class="fixed w-full z-50">
+    <header class="fixed top-0 w-full z-50">
         <!-- Top Rich Bar -->
         <div class="bg-[#5C5045] text-white/90 py-2 px-6 hidden md:block">
             <div
@@ -780,6 +780,13 @@
 
         mobileMenuBtn.addEventListener('click', toggleMenu);
         closeMenuBtn.addEventListener('click', toggleMenu);
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                setTimeout(toggleMenu, 100);
+            });
+        });
 
         openServicesBtn.addEventListener('click', () => {
             menuSlider.style.transform = 'translateX(-50%)';
